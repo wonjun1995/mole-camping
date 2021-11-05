@@ -1,0 +1,115 @@
+.selected{
+    background: #eef7ff;
+}
+
+.search-form {
+    /* instance search를 맵 위에 그리기 위한 속성 */
+    position: relative;
+    width: 350px;
+    background: #fff;   /* 배경을 하얀색으로 (배경을 지정해주지 않으면 투명하게 나타남)*/
+    border-radius: 8px;    /* 테두리가 동그란 모양 */
+    margin : 0 auto 0 auto;
+    height: 45px;
+}
+
+.search-form__search-input {
+    border : 1px solid #dcdcdc; /* 투명한 테두리를 주어서 focus 됐을 때 border가 생겨도 다른 element의 위치에 영향을 주지 않도록 함. */
+    padding: 11px 50px 11px 45px;    /* margin-bottom을 주어서 form의 크기를 늘려줌 */
+    border-radius: 8px;    /* 테두리가 동그란 모양 */
+    width: 100%;
+    appearance: none;
+    outline: none;
+    color: #5a6674;
+}
+
+.search-form__search-input:focus {
+    border: 1px solid #222;
+}
+
+.search-form__suggestions{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    font-size: 14px;
+    background-color: #fff;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 0px 0px 5px 5px;    /* 테두리가 동그란 모양 */
+    z-index: 10;
+}
+
+.search-form__suggestions .number{
+    float: left;
+    margin-right: 15px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #4bb53e;
+    font-style: italic;
+    vertical-align: top;
+}
+
+.search-form__suggestion:last-child{
+    border-radius: 0px 0px 5px 5px;    /* 테두리가 동그란 모양 */
+}
+
+.search-form__suggestion{
+    text-align: left;
+    padding : 12px 5px 12px 20px; /* 추천 검색어 사이의 간격 */
+}
+
+.search-form__suggestion:not(:last-child){
+    border-bottom: 1px solid #eaeded;
+}
+
+.suggestion__category{
+    padding-right: 15px;
+    float:right /* 오른쪽 끝에 붙어 있게 함. */
+}
+
+.search-button svg {
+    width: 20px;
+    height: 20px;
+    fill: #5a6674;
+}
+
+.search-form .btn-search {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    outline: none !important;
+    cursor: pointer;
+}
+
+.search-form .btn-cancel{
+    position: absolute;
+    right: 20px;
+    top: 12px;
+
+    height: 22px;
+    margin: auto;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+/* clears the 'X' from Internet Explorer */
+.search-form__search-input::-ms-clear,
+.search-form__search-input::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* clears the 'X' from Chrome */
+.search-form__search-input::-webkit-search-decoration,
+.search-form__search-input::-webkit-search-cancel-button,
+.search-form__search-input::-webkit-search-results-button,
+.search-form__search-input::-webkit-search-results-decoration {
+    display: none;
+}

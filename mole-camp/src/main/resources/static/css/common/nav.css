@@ -1,0 +1,59 @@
+.navbar {
+    font-family: NanumGothic !important;
+    position: relative;
+    background-color: #fff;
+    height: 70px;   /* 이 값을 변경하면, content의 margin, padding 수정 */
+    margin-bottom: 0px !important;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,.15)!important;
+    border: 0;
+    padding : 0 300px 0 300px
+}
+
+.username{
+    margin-right: 20px;
+}
+.auth{
+    margin : 0 0 0 auto;
+    font-weight: 500;
+    z-index: 1000;
+}
+
+
+.navbar .lnk li+li:before {
+    display: inline-block;
+    width: 2px;
+    height: 16px;
+    margin: 6px 31px 0 27px;
+    background: #e9ebec;
+    content: '';
+    vertical-align: top;
+}
+
+.navbar .lnk{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 26px;
+    text-align: center;
+    padding-left: 0;
+    margin-bottom: 0px;
+}
+
+.navbar li{
+    display: inline-block;
+}
+
+.navbar a{
+    font-weight: 600;
+    color: #010101;
+}
+
+.navbar .gnb{
+    position: absolute;
+    right : 50px;
+    top: 26px;
+    font-weight: 600;
+    color: #010101;
+    line-height: 1.7;
+    font-size: 14px;
+}

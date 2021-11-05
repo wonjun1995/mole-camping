@@ -1,0 +1,126 @@
+.wrap-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.info-input{
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    padding: 0 35px;
+}
+
+.input-large{
+    width: 70%;
+}
+
+.input-mid{
+    width: 50%;
+}
+
+.input-small{
+    width: 30%;
+}
+
+.empty-area{
+    height: 20px;
+}
+
+.info-input__input{
+    padding: 0 .75em;
+    border: 1px solid #d9d9d9;
+    border-radius: .1875em;
+}
+
+.info-input__input:focus{
+    border: 1px solid #b4dbed;
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(100,150,200,.5);
+}
+
+.info-input__row-header{
+    color: #767a83;
+    width: 100px;
+    margin-right: 20px;
+}
+
+.info-input__row {
+    display:flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 15px;
+}
+
+.option-input-list{
+    display: flex;
+    flex-direction: column;
+}
+
+.option-wrap{
+    flex-direction: row;
+    margin-bottom: 5px;
+}
+
+.input-wrap{
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px;
+}
+
+.input-wrap__input-header{
+    margin-bottom: 5px;
+}
+
+.add-option, .delete-option, .info-input__input{
+    height: 40px;
+}
+
+.delete-option{
+    margin-right: 5px;
+}
+
+.delete-row, .delete-all-row{
+    width: 50px;
+    padding: 5px;
+}
+
+.delete-row, .delete-all-row, .blanket-apply{
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.delete-row:active, .delete-all-row:active, .blanket-apply:active{
+    background-color: #f5f5f5;
+}
+
+.delete-all-row{
+    margin-bottom: 5px;
+}
+.option-apply{
+    width: 150px;
+}
+
+.action{
+    margin: auto;   /* 확인, 취소 버튼*/
+}
+
+.table-resizable tbody td{
+    cursor: text;
+}
+
+.product-info-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.no-product{
+    width: 100%;
+    height : 60px;
+    border : 1px solid #ddd;
+    box-shadow: none;
+}

@@ -1,0 +1,51 @@
+.menu-bar{
+    padding : 10px 20px 10px 20px
+}
+
+.checkbox {
+    display: block;
+}
+
+.checkbox .icon{
+    margin-right: 10px;
+}
+
+.menu-bar{
+    height : 380px
+}
+
+.campsite-info{
+    position: relative;
+    width : 600px;
+    height: 180px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border : 1px solid #e8e8e8;
+    padding : 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.campsite-info img{
+    width : 160px;
+    height: 160px;
+    border-radius: 5px;
+}
+
+.campsite-info span{
+    line-height: 20px;
+}
+
+.price {
+    position: absolute;
+    right: 20px;
+    bottom : 20px
+}
+
+.address{
+    color: rgba(0,0,0,0.56);
+}
+
+.search-form{
+    margin-bottom: 30px;
+}

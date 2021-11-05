@@ -1,0 +1,44 @@
+.circle_img{    /* 테두리가 둥근 이미지를 감싸는 div (이미지를 둥글게 만들기 위해 img를 감싸는 div 태그를 추가함.)*/
+    border-radius: 70%; /* 이미지 둥글게 만들기 위한 속성 (https://gofnrk.tistory.com/28 참고)*/
+    overflow: hidden;   /* overflow: hidden; 속성으로 넘치는 부분은 지워줌 */
+    float : left;   /* 이미지 옆에 텍스트를 위치시키기 위해 적용시킴 */
+}
+
+.circle_img img{    /* 테두리가 둥근 이미지 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* object-fit 속성으로 이미지와 같은 오브젝트를 받아서 비율은 그대로 유지한 채로 이미지를 가공 */
+}
+
+footer{
+    background-color : #3c3935; /* footer의 배경색 */
+    height : 80px;
+    width: 100%;
+    line-height: 18px;
+}
+
+footer #footer_box{ /* footer 내부의 이미지와 텍스트를 감싸는 div 태그 */
+    margin-left : auto;    /* left right는 가운데 정렬 */
+    margin-right : auto;
+    width : 550px;  /* 크기를 잘 조정해서 내부에 있는 이미지와 텍스트가 중앙정렬 되도록 해야함.*/
+    height : 100%;
+
+    /* 이미지와 텍스트의 수직 중앙 정렬을 위한 속성 */
+    display:flex;
+    align-items:center;
+}
+
+#footer_img{
+    width : 70px;
+    height : 70px;
+}
+
+footer #footer_text{    /* 사이트 정보 텍스트 */
+    text-align : center;    /* 텍스트 가운데 정렬 */
+    overflow : hidden;  /* 스크롤 제거 */
+    margin-bottom :0px;    /* 왜 그런지 모르겠는데 margin-bottom을 0px로 지정하지 않으면 1rem으로 지정되어 있어서 footer 하단에 공백이 생김 */
+    width : 480px;  /* 텍스트 영역의 width를 늘려주면 img와 텍스트 사이의 간격이 넓어짐. */
+    height : 65%;  /* height 속성을 주지 않으면 footer 하단에 공백이 생겨서 height를 지정해줌. */
+    font-size : 12px;
+    color : white;
+}

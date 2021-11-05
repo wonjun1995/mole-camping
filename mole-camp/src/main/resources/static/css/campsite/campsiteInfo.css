@@ -1,0 +1,138 @@
+img {
+    border-radius: 2px;
+}
+
+ul, li{
+    list-style-type : circle;
+}
+
+.content{
+    justify-content: center !important;
+}
+
+.campsite-info{
+    width : 800px;
+    border-radius: 5px;
+    height : 100%;
+    background-color: #ffffff;
+    padding : 10px;
+}
+
+.campsite-main-img{
+    width : 400px;
+    height : 400px;
+    float: left;
+}
+
+.base-info{
+    margin-bottom: 5px;
+}
+
+.base-info div{
+    margin-bottom: 5px;
+}
+
+.title-info{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
+.right{
+    margin-left: 25px;
+    flex-grow: 100;
+}
+
+.campsite-name{
+    font-weight: bold;
+    font-size : 25px;
+}
+
+.information, .notice{
+    background-color: rgb(250,250,250);
+    padding: 10px;
+}
+
+.campsite-address{
+    font-size : 15px;
+    color: rgba(0,0,0,0.56);
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.campsite-contact{
+    margin-top: 10px;
+}
+.campsite-desc{
+    margin-top: 40px;
+}
+
+.campsite-info .detail-info .title{
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.detail-info{
+    padding : 15px;
+}
+
+.info-content{
+    border-radius: 4px;
+    padding : 5px;
+    background-color: rgb(250,250,250);
+}
+
+.reservation-date{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border-radius: 10px;
+    border : 1px solid rgba(211, 211, 211, 0.5);
+    padding : 20px;
+}
+
+input[name="reservation-date-input"]{
+    text-align: center;
+}
+
+.room-img, .tourist-img, .restaurant-img{
+    width : 180px;
+    height : 180px;
+}
+
+.room-info, .tourist-info, .restaurant-info{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border : 1px solid rgba(211, 211, 211, 0.5);
+}
+
+.room-capacity, .tourist-address{
+    font-size : 13px;
+    color: rgba(0,0,0,0.56);
+}
+
+.room-price{
+    color: rgba(0,0,0,1);
+    font-size: 20px;
+}
+
+.wrap-column{
+    text-align: right;
+    right : 10px;
+    position: absolute;
+    bottom: 10px;
+}
+
+.reservation-btn{
+    width : 200px;
+}

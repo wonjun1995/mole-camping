@@ -1,0 +1,11 @@
+.info-value{
+    color: rgba(0,0,0,0.56);
+}
+
+.input-wrap{
+    margin-bottom : 15px;
+}
+
+.content{
+    justify-content: center !important;
+}
