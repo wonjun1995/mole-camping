@@ -148,7 +148,7 @@ a:hover {
 
 /* line 74, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_common.scss */
 h1, h2, h3, h4, h5, h6 {
-    color: #0c3e72;
+    color: #000000;
     font-family: "Open Sans", sans-serif;
 }
 
@@ -166,7 +166,7 @@ p {
 h2 {
     font-size: 44px;
     line-height: 28px;
-    color: #0c3e72;
+    color: #000000;
     font-weight: 600;
     line-height: 1.222;
 }
@@ -242,7 +242,7 @@ a:focus, .button:focus, button:focus, .btn:focus {
 /* line 139, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_common.scss */
 .section_tittle h2 {
     font-size: 46px;
-    color: #0c3e72;
+    color: #000000;
     line-height: 1.1;
     font-weight: 700;
     position: relative;
@@ -472,10 +472,12 @@ ul {
     transition: 0.5s;
 }
 
+
 /* line 19, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_button.scss */
 .submit_btn:hover {
     background: transparent;
 }
+
 
 /* line 25, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_button.scss */
 .btn_1, .btn_2 {

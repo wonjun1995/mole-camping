@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/html"
+      lang="euc-kr">
+
+<head th:replace="fragments/config :: headFragment"></head>
+<link rel="stylesheet" th:href="@{/css/communityPost/post-detail-card.css}">
+<link rel="stylesheet" th:href="@{/css/communityPost/community-style.css}">
+<link rel="stylesheet" th:href="@{/css/common/jellyCheckbox.css}">
+<body>
+<header th:replace="fragments/header :: headerFragment"></header>
+
+<div class="community">
+    <div class="community_left">
+        <h5>태그 검색</h5>
+        <br>
+        <label class="jelly-checkbox"><input type="checkbox"><span class="icon"></span><span>유료캠핑장</span></input></label>
+        <label class="jelly-checkbox"><input type="checkbox"><span class="icon"></span><span>무료캠핑장</span></input></label>
+        <label class="jelly-checkbox"><input type="checkbox"><span class="icon"></span><span>캠핑스팟</span></input></label>
+        <label class="jelly-checkbox"><input type="checkbox"><span class="icon"></span><span>캠핑용품</span></input></label>
+        <label class="jelly-checkbox"><input type="checkbox"><span class="icon"></span><span>위치공유</span></input></label>
+    </div>
+    <div class="community_content">
+        <div class="community_content_top">
+            <h2>두더지 게시판</h2>
+            <br>
+            <div class="search-box">
+                <input class="input_search" placeholder="게시글 검색" type="text">
+                <div class="also search-link"></div>
+            </div>
+        </div>
+        <div class="community_content_bottom">
+            <p th:align="right">
+                <a href="/community/post/save" class="community_btn">글쓰기</a>
+            </p>
+            <div class="blog-card">
+                <div class="meta">
+                    <div class="photo"
+                         style="background-image: url(/images/testcamp/camping1.jpg)"></div>
+                    <ul class="details">
+                        <li class="author"><a href="#">John Doe</a></li>
+                        <li class="date">Aug. 24, 2015</li>
+                        <li class="tags">
+                            <ul>
+                                <li><a href="#">Learn</a></li>
+                                <li><a href="#">Code</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="description">
+                    <h1>처음 육도 간날입니다.</h1>
+                    <h2>위치: 경기도 안산시 육도</h2>
+                    <p> 처음으로 캠핑을 갔는데 처음부터 제대로인 곳을 가게되서 뿌듯하네요!</p>
+                    <p class="read-more">
+                        <a href="#">Read More</a>
+                    </p>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="meta">
+                    <div class="photo"
+                         style="background-image: url(/images/testcamp/camping4.jpg)"></div>
+                    <ul class="details">
+                        <li class="author"><a href="#">Jane Doe</a></li>
+                        <li class="date">July. 15, 2015</li>
+                        <li class="tags">
+                            <ul>
+                                <li><a href="#">Learn</a></li>
+                                <li><a href="#">Code</a></li>
+                                <li><a href="#">JavaScript</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="description">
+                    <h1>친구들과 또 육도를 갔습니다.</h1>
+                    <h2>위치: 경기도 안산시 육도</h2>
+                    <p>이번에는 나름 두번째 방문인지라 컨텐츠 거리들을 챙겨 갔습니다. 낚시대를 가져갓더니만 밤에 밀물이 들어올 때 물고기들을 수백마리 잡아버렸네요. 촤하하</p>
+                    <p class="read-more">
+                        <a href="#">Read More</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<footer th:replace="fragments/footer :: footerFragment"></footer>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="euc-kr">
+
+<head th:replace="fragments/config :: headFragment"></head>
+<link rel="stylesheet" th:href="@{/css/communityPost/post-detail-card.css}">
+<link rel="stylesheet" th:href="@{/css/communityPost/community-style.css}">
+
+<body>
+<header th:replace="fragments/header :: headerFragment"></header>
+
+<div class="community">
+    <h1>
+        게시글 작성화면에 필요한 것
+    </h1>
+    <ol>
+        <li>title</li>
+        <li>content</li>
+        <li>카테고리 유형</li>
+        <li>해쉬태그 추가?</li>
+        <li>이미지 업로드? -> 썸머노트?</li>
+    </ol>
+</div>
+
+
+<footer th:replace="fragments/footer :: footerFragment"></footer>
+</body>
+</html>

@@ -1,19 +1,19 @@
 /************************* 체크박스를 대한 속성 (애니메이션 포함) ****************************/
-.checkbox{
+.jelly-checkbox{
     margin: 0;
 }
 
-.checkbox input {
+.jelly-checkbox input {
     display: none;  /* 체크박스의 box를 보이지 않도록 함 */
 }
 
-.checkbox span {
+.jelly-checkbox span {
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
 }
 
-.checkbox .icon {
+.jelly-checkbox .icon {
     position: relative;
     width: 17px;
     height: 17px;
@@ -21,7 +21,7 @@
     border-radius: 3px;
 }
 
-.checkbox .icon::after {
+.jelly-checkbox .icon::after {
     content: "";
     position: absolute;
     top: 1px;
@@ -36,7 +36,7 @@
     opacity: 0;
 }
 
-.checkbox .text {
+.jelly-checkbox .text {
     margin-left: 5px;
 }
 
@@ -64,13 +64,13 @@
     }
 }
 
-.checkbox input:checked ~ .icon {
+.jelly-checkbox input:checked ~ .icon {
     border-color: transparent;
     background: #ff1616;
     animation: jelly 0.6s ease;
 }
 
-.checkbox input:checked ~ .icon::after {
+.jelly-checkbox input:checked ~ .icon::after {
     opacity: 1;
     transform: rotate(45deg) scale(1);
 }
