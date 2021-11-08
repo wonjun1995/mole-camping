@@ -495,8 +495,8 @@ ul {
 
 /* line 35, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_button.scss */
 .btn_1:hover, .btn_2:hover {
-    color: #fff;
-    background-color: #2493e0;
+    color: #fe5c24;
+    background-color: #fff;
 }
 
 @media (max-width: 991px) {
@@ -622,7 +622,7 @@ ul {
 
 /* line 134, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_button.scss */
 .button:hover {
-    color: #fff !important;
+    color: #fe5c24 !important;
 }
 
 /* line 139, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_button.scss */

@@ -68,6 +68,7 @@
     cursor: pointer;
     -webkit-transition: 0.5s;
     transition: 0.5s;
+    margin-right: 30px;
 }
 .community_btn:hover {
     color: #fff;
