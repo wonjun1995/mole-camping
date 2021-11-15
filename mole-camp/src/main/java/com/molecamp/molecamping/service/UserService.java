@@ -1,7 +1,7 @@
 package com.molecamp.molecamping.service;
 
-import com.molecamp.molecamping.model.user.RoleType;
-import com.molecamp.molecamping.model.user.User;
+import com.molecamp.molecamping.entity.user.RoleType;
+import com.molecamp.molecamping.entity.user.User;
 import com.molecamp.molecamping.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

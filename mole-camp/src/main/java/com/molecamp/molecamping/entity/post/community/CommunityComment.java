@@ -1,6 +1,6 @@
-package com.molecamp.molecamping.model.post.community;
+package com.molecamp.molecamping.entity.post.community;
 
-import com.molecamp.molecamping.model.user.User;
+import com.molecamp.molecamping.entity.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

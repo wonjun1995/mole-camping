@@ -1,6 +1,6 @@
 package com.molecamp.molecamping.dto;
 
-import com.molecamp.molecamping.model.user.User;
+import com.molecamp.molecamping.entity.user.User;
 import lombok.Getter;
 
 import javax.validation.constraints.NotBlank;

@@ -1,4 +1,4 @@
-package com.molecamp.molecamping.model.file;
+package com.molecamp.molecamping.entity.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,14 +10,11 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class FileInfo {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(nullable = false)
-    private String username;
-
-    @Column(nullable = false)
-    private String filePath;
+    private String type;
 }

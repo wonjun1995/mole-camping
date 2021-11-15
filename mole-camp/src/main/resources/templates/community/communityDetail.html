@@ -4,208 +4,96 @@
       lang="euc-kr">
 
 <head th:replace="fragments/config :: headFragment"></head>
-<link rel="stylesheet" th:href="@{/css/communityPost/community-style.css}">
 
 <body>
 <header th:replace="fragments/header :: headerFragment"></header>
 
 <!--================Blog Area =================-->
-<section class="blog_area section_padding">
+<section class="blog_area single-post-area section_padding">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 mb-5 mb-lg-0">
-                <div class="blog_left_sidebar">
-                    <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img rounded-0" src="/images/testcamp/camping1.jpg" alt="">
-                            <a href="#" class="blog_item_date">
-                                <h3>15</h3>
-                                <p>Jan</p>
-                            </a>
-                        </div>
-
-                        <div class="blog_details">
-                            <a class="d-inline-block" href="single-blog.html">
-                                <h2>Google inks pact for new 35-storey office</h2>
-                            </a>
-                            <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                he earth it first without heaven in place seed it second morning saying.</p>
-                            <ul class="blog-info-link">
-                                <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
-                                <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img rounded-0" src="/images/testcamp/camping4.jpg" alt="">
-                            <a href="#" class="blog_item_date">
-                                <h3>15</h3>
-                                <p>Jan</p>
-                            </a>
-                        </div>
-
-                        <div class="blog_details">
-                            <a class="d-inline-block" href="single-blog.html">
-                                <h2>Google inks pact for new 35-storey office</h2>
-                            </a>
-                            <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                he earth it first without heaven in place seed it second morning saying.</p>
-                            <ul class="blog-info-link">
-                                <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
-                                <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img rounded-0" src="img/blog/single_blog_3.png" alt="">
-                            <a href="#" class="blog_item_date">
-                                <h3>15</h3>
-                                <p>Jan</p>
-                            </a>
-                        </div>
-
-                        <div class="blog_details">
-                            <a class="d-inline-block" href="single-blog.html">
-                                <h2>Google inks pact for new 35-storey office</h2>
-                            </a>
-                            <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                he earth it first without heaven in place seed it second morning saying.</p>
-                            <ul class="blog-info-link">
-                                <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
-                                <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img rounded-0" src="img/blog/single_blog_4.png" alt="">
-                            <a href="#" class="blog_item_date">
-                                <h3>15</h3>
-                                <p>Jan</p>
-                            </a>
-                        </div>
-
-                        <div class="blog_details">
-                            <a class="d-inline-block" href="single-blog.html">
-                                <h2>Google inks pact for new 35-storey office</h2>
-                            </a>
-                            <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                he earth it first without heaven in place seed it second morning saying.</p>
-                            <ul class="blog-info-link">
-                                <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
-                                <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img rounded-0" src="img/blog/single_blog_5.png" alt="">
-                            <a href="#" class="blog_item_date">
-                                <h3>15</h3>
-                                <p>Jan</p>
-                            </a>
-                        </div>
-
-                        <div class="blog_details">
-                            <a class="d-inline-block" href="single-blog.html">
-                                <h2>Google inks pact for new 35-storey office</h2>
-                            </a>
-                            <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                he earth it first without heaven in place seed it second morning saying.</p>
-                            <ul class="blog-info-link">
-                                <li><a href="#"><i class="far fa-user"></i> Travel, Lifestyle</a></li>
-                                <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <nav class="blog-pagination justify-content-center d-flex">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Previous">
-                                    <i class="ti-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">1</a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Next">
-                                    <i class="ti-angle-right"></i>
-                                </a>
-                            </li>
+            <div class="col-lg-8 posts-list">
+                <div class="single-post">
+                    <div class="blog_details">
+                        <input type="hidden" name="post_id" th:value="${post.id}"/>
+                        <h2 th:text="${post.title}"></h2>
+                        <ul class="blog-info-link mt-3 mb-4">
+                            <li><a href="#"><i class="far fa-user" th:text=" ' ' + ${post.user.username}"></i></a></li>
+                            <li><a href="#"><i class="far fa-comments" th:text=" ' ' + ${post.reply.size()}"></i></a></li>
                         </ul>
-                    </nav>
+                        <div th:utext="${post.content}"></div>
+                    </div>
+                </div>
+                <p th:align="right">
+                    <a type="button" class="btn-1" th:onclick="history.back()">돌아가기</a>
+                    <!--작성자와 현재 로그인한 사용자의 아이디가 일치할 때만 보이게끔 설정 필요-->
+                    <th:block th:if="${post.user.username} == ${authUser.username}">
+                        | <a th:href="@{/community/post/{postId}/update(postId=${post.id})}"
+                             class="btn-1 btn-update">수정</a> |
+                        <a type="button" class="btn-1 btn-delete">삭제</a>
+                    </th:block>
+                </p>
+
+
+                <div class="comments-area">
+                    <h4>댓글 목록</h4>
+                    <div class="comment-list">
+                        <div class="single-comment" th:each="replylist:${post.reply}">
+                            <p class="comment" th:text="${replylist.content}"></p>
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <h5><a href="#" th:text="${replylist.user.username}"></a></h5>
+                                    <p class="date" th:text="${replylist.createdDate}"></p>
+                                </div>
+                                <div class="reply_delete" th:if="${replylist.user.id} == ${authUser.id}">
+                                    <input type="hidden" name="delete_reply_id" th:value="${replylist.id}">
+                                    <a type="button" class="btn-reply reply-btn">삭제</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-form">
+                    <h4>댓글 쓰기</h4>
+
+                    <form class="form-contact comment_form reply_write_form" method="post">
+                        <div class="card">
+                            <input type="hidden" name="reply_user_id" th:value="${authUser.id}"/>
+                            <input type="hidden" name="reply_post_id" th:value="${post.id}"/>
+                            <div class="card-body">
+                                <label>
+                                    <textarea name="reply_content" class="form-control" rows="1"></textarea>
+                                </label>
+                                <button type="submit" class="btn-1">등록</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
-                    <aside class="single_sidebar_widget">
-                        <button class="button rounded-0 w-100 btn_1" onclick="location.href='/community/post/save'">글쓰기</button>
-                    </aside>
-
                     <aside class="single_sidebar_widget search_widget">
                         <form action="#">
                             <div class="form-group">
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" placeholder='Search Keyword'
-                                           onfocus="this.placeholder = ''"
-                                           onblur="this.placeholder = 'Search Keyword'">
+                                           onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
                                     <div class="input-group-append">
                                         <button class="btn" type="button"><i class="ti-search"></i></button>
                                     </div>
                                 </div>
                             </div>
-                            <button class="button rounded-0 primary-bg w-100 btn_1" type="submit">검색</button>
+                            <button class="button rounded-0 primary-bg text-white w-100 btn_1" type="submit">Search
+                            </button>
                         </form>
                     </aside>
-
                     <aside class="single_sidebar_widget post_category_widget">
                         <h4 class="widget_title">Category</h4>
-                        <ul class="list cat-list">
+                        <ul class="list cat-list" th:each="categories:${category_type}">
                             <li>
                                 <a href="#" class="d-flex">
-                                    <p>Resaurant food</p>
-                                    <p>(37)</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Travel news</p>
-                                    <p>(10)</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Modern technology</p>
-                                    <p>(03)</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Product</p>
-                                    <p>(11)</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Inspiration</p>
-                                    <p>21</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Health Care (21)</p>
-                                    <p>09</p>
+                                    <p th:text="${categories.type}"></p>
+                                    <p>(게시글 건수)</p>
                                 </a>
                             </li>
                         </ul>
@@ -214,8 +102,10 @@
             </div>
         </div>
     </div>
+    <span class="login-form__fail-msg" th:text="${signUpFailMsg}"></span>
 </section>
-
+<script th:src="@{/js/community/postDelete.js}" type="text/javascript"></script>
+<script th:src="@{/js/community/reply.js}" type="text/javascript"></script>
 <footer th:replace="fragments/footer :: footerFragment"></footer>
 </body>
 </html>

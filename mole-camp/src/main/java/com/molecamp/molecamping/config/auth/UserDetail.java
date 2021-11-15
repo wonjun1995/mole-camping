@@ -1,6 +1,6 @@
 package com.molecamp.molecamping.config.auth;
 
-import com.molecamp.molecamping.model.user.User;
+import com.molecamp.molecamping.entity.user.User;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

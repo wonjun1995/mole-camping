@@ -1168,13 +1168,13 @@ ul {
 /* line 529, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_blog.scss */
 .blog_details {
     padding: 30px 0 20px 10px;
-    box-shadow: 0px 10px 20px 0px rgba(221, 221, 221, 0.3);
+    box-shadow: 10px 15px 30px 0px rgba(171, 171, 171, 0.3);
 }
 
 @media (min-width: 768px) {
     /* line 529, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_blog.scss */
     .blog_details {
-        padding: 60px 30px 35px 35px;
+        padding: 30px 0 20px 10px;
     }
 }
 
@@ -1948,8 +1948,8 @@ ul {
 /* line 1408, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_blog.scss */
 .comment-form {
     border-top: 1px solid #eee;
-    padding-top: 45px;
-    margin-top: 50px;
+    padding-top: 30px;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -2050,6 +2050,11 @@ ul {
     /* Firefox 18- */
     font-size: 13px;
     color: #777;
+}
+
+.single-comment {
+    border-bottom: 1px solid rgba(171, 171, 171, 0.3);
+    margin-bottom: 30px;
 }
 
 /*============ End Blog Single Styles  =============*/

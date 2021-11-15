@@ -13,8 +13,15 @@ function swalAlert(option) {
     Swal.fire(option)
 }
 
-function blankCheck(input){
+function blankSpaceCheck(input){
     if(typeof input === 'undefined' || input === null || input ===" " || input.search(/\s/) != -1){
+        return true;
+    }else{
+        return false;
+    }
+}
+function blankCheck(input){
+    if(typeof input === 'undefined' || input === null || input ===" " || input === ""){
         return true;
     }else{
         return false;

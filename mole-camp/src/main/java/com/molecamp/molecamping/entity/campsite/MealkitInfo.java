@@ -1,4 +1,4 @@
-package com.molecamp.molecamping.model.campsite;
+package com.molecamp.molecamping.entity.campsite;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,10 +10,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Room {
+public class MealkitInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column(nullable = false)
     private int campsiteId;
 
@@ -21,15 +22,9 @@ public class Room {
     private String name;
     @Column(nullable = false)
     private int price;
-    @Column(nullable = false)
-    private int roomNums;
 
     @Column(nullable = false)
-    private int maxHeadCnt;
-    @Column(nullable = false)
-    private int baseHeadCnt;
-    @Column(nullable = false)
-    private int baseNumCars;
+    private int numRemains;
 
     //private FileInfoDto image;
 }

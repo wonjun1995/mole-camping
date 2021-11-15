@@ -10,7 +10,7 @@ function uploadSummernoteImageFile(file, editor) {
         success: function (data) {
             //항상 업로드된 파일의 url이 있어야 한다.
             console.log(data);
-            $('.summernote').data("url",data.url)
+            $('.summernote').data("url", data.url);
             $(editor).summernote('insertImage', data.url);
         }
     });
@@ -19,19 +19,16 @@ function uploadSummernoteImageFile(file, editor) {
 (function ($){
     "use strict";
 
-    $('.save_form').on('submit',async function (event){
+    $('.update_form').on('submit',async function (event){
         event.preventDefault();
         let check=true;
-
+        let id=$("input[name='post_id']").val()
         let categoryType = $("option:selected").val()
         let title = $("input[name = 'title']").val()
         let content = $("textarea[name = 'content']").val()
         let mainImage=$('.summernote').data("url")
-        console.log("post Save 활성화");
-        console.log(categoryType);
-        console.log(title);
-        console.log(content);
-        console.log(mainImage);
+        console.log("post Update");
+
 
         //title,categoryType,content 공백 체크
         if(blankCheck(categoryType) || blankCheck(title) || blankCheck(content)){
@@ -40,21 +37,26 @@ function uploadSummernoteImageFile(file, editor) {
             swalAlert({icon:"error",html:"폼을 모두 작성해주세요!"})
         }
 
+        if(blankCheck(mainImage)){
+            mainImage=null;
+        }
+        const data = {title: title, content: content, img_path:mainImage}
+
         //게시글 작성
         if(check === true){
-            console.log("게시글 작성 완료")
+            console.log("게시글 수정 완료")
             $.ajax({
-                url:"/api/community/post",
-                type:"POST",
-                data:{title: title, content: content, category: categoryType,img_path:mainImage},
+                url:"/api/community/update/"+id,
+                type:"PUT",
+                data:data,
                 success: function (response) {
                     if (!response.error) {
                         console.log(response);
                         swalAlert({
                             icon: "success",
-                            html: "게시글이 등록되었습니다",
+                            html: "게시글이 수정되었습니다",
                             preConfirm: () => {
-                                window.location.href = "/community/post"
+                                window.location.href = "/community/post/"+id
                             }
                         })
                     }else{

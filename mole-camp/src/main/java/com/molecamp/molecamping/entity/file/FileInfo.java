@@ -1,4 +1,4 @@
-package com.molecamp.molecamping.model.campsite;
+package com.molecamp.molecamping.entity.file;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,24 +7,17 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
-public class MealkitInfo {
+public class FileInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(nullable = false)
-    private int campsiteId;
+    private String username;
 
     @Column(nullable = false)
-    private String name;
-    @Column(nullable = false)
-    private int price;
-
-    @Column(nullable = false)
-    private int numRemains;
-
-    //private FileInfoDto image;
+    private String filePath;
 }

@@ -1,4 +1,4 @@
-package com.molecamp.molecamping.model.campsite;
+package com.molecamp.molecamping.entity.campsite;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

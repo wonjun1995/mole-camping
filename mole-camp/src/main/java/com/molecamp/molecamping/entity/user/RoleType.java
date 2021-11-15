@@ -1,4 +1,4 @@
-package com.molecamp.molecamping.model.user;
+package com.molecamp.molecamping.entity.user;
 
 public enum RoleType {
     USER,ADMIN,OWNER

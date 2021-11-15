@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="euc-kr">
+
+<head th:replace="fragments/config :: headFragment"></head>
+<link rel="stylesheet" th:href="@{/css/communityPost/community-style.css}">
+
+<body>
+<header th:replace="fragments/header :: headerFragment"></header>
+
+<!--================Blog Area =================-->
+<section class="blog_area section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+                    <article class="blog_item" th:each="list:${postAllList}">
+
+                        <div class="blog_item_img" th:if="${not #strings.isEmpty(list.img_path)}">
+                            <img class="card-img rounded-0" th:src="${list.img_path}" alt="">
+                        </div>
+
+                        <div class="blog_details">
+                            <a class="d-inline-block" th:href="@{/community/post/{listId}(listId=${list.id})}">
+                                <h2 th:text="${list.title}"></h2>
+                            </a>
+                            <p th:text="${list.category}"></p>
+                            <ul class="blog-info-link">
+                                <li><a href="#"> <i class="far fa-user" th:text=" ' ' + ${list.user.username}"></i></a>
+                                </li>
+                                <li><a href="#"> <i class="far fa-comments"
+                                                    th:text="' ' + ${list.reply.size()}"></i></a></li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center"
+                            th:with="start=${T(Math).floor(postAllList.number/10)*10 +1},
+last=${start +9 < postAllList.totalPages ? start + 9 : postAllList.totalPages}">
+                            <li class="page-item disabled" th:if="${postAllList.first}">
+                                <a class="page-link " th:href="@{?page={prev}(prev=${previous})}">Previous</a>
+                            </li>
+                            <li class="page-item" th:if="!${postAllList.first}">
+                                <a class="page-link" th:href="@{?page={prev}(prev=${previous})}">Previous</a>
+                            </li>
+                            <li class="page-item" th:each="page : ${#numbers.sequence(start,last)}" th:class="${page == postAllList.number + 1} ? 'active'" >
+                                <a class="page-link" th:href="@{/community/post?page={page}(page=${page}-1)}" th:text="${page}"></a>
+                            </li>
+                            <!--<li class="page-item"><a class="page-link" th:href="@{?page={pagenumber}(pagenumber=${pagenumber})}" th:text="{pagenumber}"></a></li>-->
+                            <li class="page-item disabled" th:if="${postAllList.last}">
+                                <a class="page-link" th:href="@{?page={next}(next=${next})}">Next</a>
+                            </li>
+                            <li class="page-item" th:if="!${postAllList.last}">
+                                <a class="page-link" th:href="@{?page={next}(next=${next})}">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    <aside class="single_sidebar_widget">
+                        <button class="button rounded-0 w-100 btn_1" onclick="location.href='/community/post/save'">
+                            글쓰기
+                        </button>
+                    </aside>
+
+                    <aside class="single_sidebar_widget search_widget">
+                        <form action="#">
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder='Search Keyword'
+                                           onfocus="this.placeholder = ''"
+                                           onblur="this.placeholder = 'Search Keyword'">
+                                    <div class="input-group-append">
+                                        <button class="btn" type="button"><i class="ti-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="button rounded-0 primary-bg w-100 btn_1" type="submit">검색</button>
+                        </form>
+                    </aside>
+
+                    <aside class="single_sidebar_widget post_category_widget">
+                        <h4 class="widget_title">Category</h4>
+                        <ul class="list cat-list" th:each="categories:${category_type}">
+                            <li>
+                                <a href="#" class="d-flex">
+                                    <p th:text="${categories.type}"></p>
+                                    <p>(게시글 건수)</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="fragments/footer :: footerFragment"></footer>
+</body>
+</html>

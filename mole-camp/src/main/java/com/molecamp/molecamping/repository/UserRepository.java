@@ -1,6 +1,6 @@
 package com.molecamp.molecamping.repository;
 
-import com.molecamp.molecamping.model.user.User;
+import com.molecamp.molecamping.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

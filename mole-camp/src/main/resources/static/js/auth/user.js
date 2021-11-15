@@ -1,7 +1,7 @@
 
 
 function idDuplCheck(username){
-    if(blankCheck(username)){
+    if(blankSpaceCheck(username)){
         return false;
     }else{
         if(username.trim().length !=0){

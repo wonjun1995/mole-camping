@@ -1,4 +1,4 @@
-package com.molecamp.molecamping.model.common;
+package com.molecamp.molecamping.entity.campsite;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,14 +7,14 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class Category {
+public class ImageInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false)
-    private String type;
+    @Column
+    private int imageId;
 }
