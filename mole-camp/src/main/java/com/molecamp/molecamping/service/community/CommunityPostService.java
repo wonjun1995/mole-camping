@@ -1,7 +1,7 @@
 package com.molecamp.molecamping.service.community;
 
 import com.molecamp.molecamping.entity.community.CommunityPost;
-import com.molecamp.molecamping.entity.user.User;
+import com.molecamp.molecamping.entity.user.UserEntity;
 import com.molecamp.molecamping.repository.community.CommunityPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,10 +18,9 @@ public class CommunityPostService {
 
     //community 게시글 저장
     @Transactional
-    public void savePost(CommunityPost post, User user) {
+    public void savePost(CommunityPost post, UserEntity userEntity) {
         post.setCount(0);
-        post.setUser(user);
-        System.out.println(post);
+        post.setUserEntity(userEntity);
         comPostRepository.save(post);
     }
 

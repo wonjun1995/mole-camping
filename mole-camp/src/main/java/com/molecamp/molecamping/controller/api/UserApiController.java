@@ -1,7 +1,7 @@
 package com.molecamp.molecamping.controller.api;
 
 import com.molecamp.molecamping.dto.ResponseDto;
-import com.molecamp.molecamping.entity.user.User;
+import com.molecamp.molecamping.entity.user.UserEntity;
 import com.molecamp.molecamping.service.main.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,11 +14,9 @@ public class UserApiController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/auth/joinProc" )
-    public ResponseDto<Integer> save(User user){   //username,password,email
-        System.out.println("UserApiController: save 호출됨");
-
-        userService.join(user);
+    @PostMapping("/auth/joinProc")
+    public ResponseDto<Integer> save(UserEntity userEntity){   //username, password, tel
+        userService.join(userEntity);
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }
 
@@ -29,5 +27,4 @@ public class UserApiController {
         count=userService.idcheck(username);
         return count;
     }
-
 }

@@ -44,7 +44,7 @@ public class PostController {
     //게시글 상세보기
     @GetMapping("/community/post/{id}")
     public String communityPostDetail(Model model, @PathVariable int id, @AuthenticationPrincipal UserDetail userDetail) {
-        model.addAttribute("authUser",userDetail.getUser());
+        model.addAttribute("authUser",userDetail.getUserEntity());
         model.addAttribute("post",communityPostService.postDetail(id));
         model.addAttribute("category_type",categoryService.type_all());
         return "community/communityDetail";

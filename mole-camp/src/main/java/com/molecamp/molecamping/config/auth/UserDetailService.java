@@ -1,6 +1,6 @@
 package com.molecamp.molecamping.config.auth;
 
-import com.molecamp.molecamping.entity.user.User;
+import com.molecamp.molecamping.entity.user.UserEntity;
 import com.molecamp.molecamping.repository.main.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,8 +16,7 @@ public class UserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        System.out.println("UserDetails 호출 완료");
-        User principal = userRepository.findByUsername(username)
+        UserEntity principal = userRepository.findByUsername(username)
                 .orElseThrow(()->{
                     return new UsernameNotFoundException("해당 사용자를 찾을 수 없습니다. "+ username);
                 });

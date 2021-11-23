@@ -1,10 +1,8 @@
-
-
-function idDuplCheck(username){
+function idDuplCheck(username){ // id 중복 체크
     if(blankSpaceCheck(username)){
         return false;
     }else{
-        if(username.trim().length !=0){
+        if(username.trim().length !== 0){
             return new Promise((resolve, reject) => {
                 $.ajax({
                     url:"/auth/joinProc/idcheck",
@@ -24,30 +22,43 @@ function idDuplCheck(username){
     }
 }
 
+function joinProc(userInfo){
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: "/auth/joinProc",
+            type: "POST",
+            data: userInfo,
+            success: function (response) {
+                if (!response.error) {
+                    return resolve(true)
+                }else{
+                    return resolve(false)
+                }
+            }
+        })
+    })
+}
+
 (function ($) {
     "use strict";
 
-    var input = $('.validate-input input')
+    let input = $('.validate-input input')
 
     $('.validate-form').on('submit', async function (event) {
         event.preventDefault();
-        var check = true;
-        let username = $("input[name = 'username']").val()
-        let password = $("input[name = 'password']").val()
-        let passwordValidation = $("input[name = 'password-validation']").val()
-
-        console.log(username);
-        console.log(password);
-        console.log(passwordValidation);
+        let check = true;
+        const username = $("input[name = 'username']").val()
+        const tel = $("input[name = 'tel']").val()    // TODO : 전화번호 입력 값 확인 (ex. 9자리 숫자)
+        const password = $("input[name = 'password']").val()
+        const passwordValidation = $("input[name = 'password-validation']").val()
 
         //비밀번호 확인
-        if (password != passwordValidation) {
-            console.log("비밀번호 불일치 체크");
-            swalAlert({icon: "error", html: "비밀번호 일치 하지 않아여~"})
+        if (password !== passwordValidation) {
+            swalAlert({icon: "error", html: "비밀번호가 일치 하지 않습니다."})
             check = false;
         }
 
-        for(var i=0; i<input.length; i++) {
+        for(let i = 0; i < input.length; i++) {
             if(validate(input[i]) == false){
                 showValidate(input[i]);
                 check=false;
@@ -56,43 +67,36 @@ function idDuplCheck(username){
 
         /*=================================================================
         [Validate Id]*/
-        let idDuplicate= await idDuplCheck(username);
+        const idDuplicate = await idDuplCheck(username);
         if(idDuplicate ===false){
             swalAlert({icon:"error",html:"해당 아이디는 사용할 수 없습니다."})
         }
 
-        
         if (check === true && idDuplicate === true) {
-            console.log("회원가입 submit 활성화")
-            let termCheck = $('#terms')[0].checked
+            const termCheck = $('#terms')[0].checked
             if (!termCheck) {
                 swalAlert({icon: "error", html: "개인 정보 수집 및 이용에 대한 안내에 <br> 모두 동의해주세요."})
             } else {
-                $.ajax({
-                    url: "/auth/joinProc",
-                    type: "POST",
-                    data: {username: username, password: password},
-                    success: function (response) {
-                        if (!response.error) {
-                            swalAlert({
-                                icon: "success",
-                                html: "회원가입에 성공하였습니다.",
-                                preConfirm: () => {
-                                    window.location.href = "/auth/loginForm"
-                                }
-                            })
-                        }
-                    }
-                })
+                const joinResult = await joinProc({username : username, password : password, tel : tel})
+
+                if (joinResult){
+                    swalAlert({
+                        icon: "success",
+                        html: "회원가입에 성공하였습니다.",
+                        preConfirm: () => {window.location.href = "/auth/loginForm" }
+                    })
+                }else{
+                    swalAlert({
+                        icon: "error",
+                        html: "회원가입에 실패하였습니다.",
+                    })
+                }
             }
         }
-
     });
 
     $('.validate-form .input-wrap__input').each(function () {
-        $(this).focus(function () {
-            hideValidate(this);
-        });
+        $(this).focus(function () { hideValidate(this); });
     });
 
     function validate(input) {
@@ -134,8 +138,5 @@ function idDuplCheck(username){
             $(this).find('i').addClass('fa-eye');
             showPass = 0;
         }
-
     });
-
-
 })(jQuery)

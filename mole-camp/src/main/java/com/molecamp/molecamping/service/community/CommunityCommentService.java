@@ -14,7 +14,6 @@ public class CommunityCommentService {
 
     @Transactional
     public void saveReply(ReplyDto replyDto) {
-        System.out.println(replyDto);
         communityCommentRepository.replySave(replyDto.getUserId(), replyDto.getPostId(), replyDto.getContent());
     }
 

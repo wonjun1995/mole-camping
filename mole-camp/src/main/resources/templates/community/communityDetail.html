@@ -18,7 +18,7 @@
                         <input type="hidden" name="post_id" th:value="${post.id}"/>
                         <h2 th:text="${post.title}"></h2>
                         <ul class="blog-info-link mt-3 mb-4">
-                            <li><a href="#"><i class="far fa-user" th:text=" ' ' + ${post.user.username}"></i></a></li>
+                            <li><a href="#"><i class="far fa-user" th:text=" ' ' + ${post.userEntity.username}"></i></a></li>
                             <li><a href="#"><i class="far fa-comments" th:text=" ' ' + ${post.reply.size()}"></i></a></li>
                         </ul>
                         <div th:utext="${post.content}"></div>
@@ -27,7 +27,7 @@
                 <p th:align="right">
                     <a type="button" class="btn-1" th:onclick="history.back()">돌아가기</a>
                     <!--작성자와 현재 로그인한 사용자의 아이디가 일치할 때만 보이게끔 설정 필요-->
-                    <th:block th:if="${post.user.username} == ${authUser.username}">
+                    <th:block th:if="${post.userEntity.username} == ${authUser.username}">
                         | <a th:href="@{/community/post/{postId}/update(postId=${post.id})}"
                              class="btn-1 btn-update">수정</a> |
                         <a type="button" class="btn-1 btn-delete">삭제</a>
@@ -42,10 +42,10 @@
                             <p class="comment" th:text="${replylist.content}"></p>
                             <div class="d-flex justify-content-between">
                                 <div class="d-flex align-items-center">
-                                    <h5><a href="#" th:text="${replylist.user.username}"></a></h5>
+                                    <h5><a href="#" th:text="${replylist.userEntity.username}"></a></h5>
                                     <p class="date" th:text="${replylist.createdDate}"></p>
                                 </div>
-                                <div class="reply_delete" th:if="${replylist.user.id} == ${authUser.id}">
+                                <div class="reply_delete" th:if="${replylist.userEntity.id} == ${authUser.id}">
                                     <input type="hidden" name="delete_reply_id" th:value="${replylist.id}">
                                     <a type="button" class="btn-reply reply-btn">삭제</a>
                                 </div>

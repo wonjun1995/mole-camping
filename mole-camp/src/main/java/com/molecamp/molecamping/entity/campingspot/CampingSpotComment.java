@@ -1,6 +1,6 @@
 package com.molecamp.molecamping.entity.campingspot;
 
-import com.molecamp.molecamping.entity.user.User;
+import com.molecamp.molecamping.entity.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,5 +34,5 @@ public class CampingSpotComment {
 
     @ManyToOne
     @JoinColumn(name = "writer_id")
-    private User user;
+    private UserEntity userEntity;
 }

@@ -1,6 +1,6 @@
 package com.molecamp.molecamping.entity.campingspot;
 
-import com.molecamp.molecamping.entity.user.User;
+import com.molecamp.molecamping.entity.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -53,7 +53,7 @@ public class CampingSpot {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="writer_id")
-    public User user;
+    public UserEntity userEntity;
 
     //캠핑스팟 댓글과 양방향 맵핑
     @OneToMany(mappedBy = "camping_spot", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)

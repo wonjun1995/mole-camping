@@ -1,6 +1,5 @@
 (function ($) {
     "use strict";
-    console.log("reply 활성화");
 
     $('.reply_write_form').on('submit', async function (event) {
         event.preventDefault();
@@ -15,7 +14,6 @@
         }
         /*,user_id:userId,post_id:postId*/
         const data = {userId: userId, postId: postId, content: replyContent};
-        console.log(data);
 
         if (check === true) {
             $.ajax({
@@ -26,7 +24,6 @@
                 dataType: "json",
                 success: function (response) {
                     if (!response.error) {
-                        console.log(response);
                         swalAlert({
                             icon: "success",
                             html: "댓글이 등록되었습니다",
@@ -47,16 +44,12 @@
         let postId = $(".blog_details input[name='post_id']").val();
         let replyId = $(e.target).siblings("input[name='delete_reply_id']").val();
 
-        console.log({postId: postId, replyId: replyId});
-        console.log()
-
         $.ajax({
             url: "/api/community/post/reply/delete/" + replyId,
             type: "DELETE",
             data: {replyId: replyId},
             success: function (response) {
                 if (!response.error) {
-                    console.log(response);
                     swalAlert({
                         icon: "success",
                         html: "댓글이 삭제되었습니다",

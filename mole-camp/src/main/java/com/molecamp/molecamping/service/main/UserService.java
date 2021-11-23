@@ -1,13 +1,17 @@
 package com.molecamp.molecamping.service.main;
 
+import com.molecamp.molecamping.entity.user.RoleEntity;
 import com.molecamp.molecamping.entity.user.RoleType;
-import com.molecamp.molecamping.entity.user.User;
+import com.molecamp.molecamping.entity.user.UserEntity;
 import com.molecamp.molecamping.repository.main.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -17,16 +21,23 @@ public class UserService {
     private BCryptPasswordEncoder encoder;
 
     @Transactional
-    public void join(@RequestBody User user) {
-        String rawPassword=user.getPassword();
+    public void join(@RequestBody UserEntity userEntity) {
+        String rawPassword= userEntity.getPassword();
         String encPassword= encoder.encode(rawPassword);
-        user.setPassword(encPassword);
-        user.setRole(RoleType.USER);
+
+        // 캠퍼 권한 설정
+        List<RoleEntity> roles = new ArrayList<>();
+        RoleEntity camperRole = new RoleEntity();
+        camperRole.setName(RoleType.ROLE_CAMPER);
+        roles.add(camperRole);
+
+        userEntity.setPassword(encPassword);
+        userEntity.setRoles(roles);
+
         try {
-            userRepository.save(user);
+            userRepository.save(userEntity);
         }catch (Exception e){
             e.printStackTrace();
-            System.out.println("userService:회원가입(): "+e.getMessage());
         }
     }
 

@@ -1,7 +1,7 @@
 package com.molecamp.molecamping.entity.community;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.molecamp.molecamping.entity.user.User;
+import com.molecamp.molecamping.entity.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,7 +34,7 @@ public class CommunityPost {
     // Board가 Many, User는 One 한명의 유저는 여러 개의 게시글을 쓸 수 있다.
     @ManyToOne(fetch = FetchType.EAGER) //Many=Many, User=one
     @JoinColumn(name="userId")
-    private User user;  //DB는 오브젝트를 저장할 수 없다. FK,자바는 오브젝트를 저장할 수 있다.
+    private UserEntity userEntity;  //DB는 오브젝트를 저장할 수 없다. FK,자바는 오브젝트를 저장할 수 있다.
 
     @Column(nullable = false)
     private String category;

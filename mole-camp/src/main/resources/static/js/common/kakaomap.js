@@ -36,7 +36,6 @@ function execDaumPostcode() {
             } else {
                 document.getElementsByName("extra_address")[0].value = '';
             }
-            console.log(data);
 
             //위도, 경도를 뽑아내기 위하여 카카오 주소 검색 api에서 주소 추출 후 재검색
             $.ajax({
@@ -44,8 +43,6 @@ function execDaumPostcode() {
                 type:'GET',
                 headers: {'Authorization' : 'KakaoAK 62e24697f7bc91876ca05e412964da74'},
                 success:function(data){
-                    console.log("위도 경도 검색 삐빅")
-                    console.log(data);
                     document.getElementsByName("latitude_y")[0].value = data.documents[0].road_address.y;
                     document.getElementsByName("longtitude_x")[0].value = data.documents[0].road_address.x;
                     document.getElementsByName("region_1depth_name")[0].value = data.documents[0].road_address.region_1depth_name;

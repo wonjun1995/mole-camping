@@ -21,7 +21,6 @@ public class ReplyApiController {
 
     @PostMapping("/api/community/post/reply/save")
     public ResponseDto<Integer> replySave(@RequestBody ReplyDto replyDto) {
-        System.out.println("reply api working");
         communityCommentService.saveReply(replyDto);
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }

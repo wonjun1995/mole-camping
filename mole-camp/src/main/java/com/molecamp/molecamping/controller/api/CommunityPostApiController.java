@@ -27,16 +27,13 @@ public class CommunityPostApiController {
     //게시글 저장
     @PostMapping("/api/community/post")
     public ResponseDto<Integer> save(CommunityPost post, @AuthenticationPrincipal UserDetail principal){
-        System.out.println("postSaveApi working");
-        communityPostService.savePost(post,principal.getUser());
+        communityPostService.savePost(post,principal.getUserEntity());
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }
 
     //게시글 수정
     @PutMapping("/api/community/update/{id}")
     public ResponseDto<Integer> update(@PathVariable int id,CommunityPost post){
-        System.out.println("postUpdateApi working");
-        System.out.println(post);
         communityPostService.updatePost(id,post);
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }
@@ -44,7 +41,6 @@ public class CommunityPostApiController {
     //게시글 삭제
     @DeleteMapping("/api/community/delete/{id}")
     public ResponseDto<Integer> delete(@PathVariable int id){
-        System.out.println("postDeleteApi working");
         communityPostService.deletePost(id);
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }
@@ -64,21 +60,18 @@ public class CommunityPostApiController {
         String savedFileName = UUID.randomUUID() + extension;
 
         File targetFile = new File(fileRoot + savedFileName);
-        System.out.println(targetFile);
 
         try {
             InputStream fileStream = multipartFile.getInputStream();
             FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
             jsonObject.addProperty("url", "/summernoteImage/"+savedFileName);
             jsonObject.addProperty("responseCode", "success");
-            System.out.println(jsonObject);
 
         } catch (IOException e) {
             FileUtils.deleteQuietly(targetFile);	// 실패시 저장된 파일 삭제
             jsonObject.addProperty("responseCode", "error");
             e.printStackTrace();
         }
-        System.out.println("파일 업로드");
         return jsonObject;
     }
 }

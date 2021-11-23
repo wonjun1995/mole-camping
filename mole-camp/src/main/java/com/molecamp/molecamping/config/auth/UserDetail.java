@@ -1,36 +1,43 @@
 package com.molecamp.molecamping.config.auth;
 
-import com.molecamp.molecamping.entity.user.User;
+import com.molecamp.molecamping.entity.user.RoleEntity;
+import com.molecamp.molecamping.entity.user.UserEntity;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Getter
 public class UserDetail implements UserDetails {
-    private User user;
+    private UserEntity userEntity;
 
-    public UserDetail(User user) {
-        this.user=user;
+    public UserDetail(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> collectors= new ArrayList<>();
-        collectors.add(()->{ return "ROLE_"+user.getRole();});
+        List<RoleEntity> userRoles = userEntity.getRoles();
+
+        for (RoleEntity role : userRoles)
+            collectors.add(new SimpleGrantedAuthority(role.getName().toString()));
+
         return collectors;
     }
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return userEntity.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return userEntity.getUsername();
     }
 
     @Override

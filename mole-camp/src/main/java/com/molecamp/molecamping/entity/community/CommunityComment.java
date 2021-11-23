@@ -1,6 +1,6 @@
 package com.molecamp.molecamping.entity.community;
 
-import com.molecamp.molecamping.entity.user.User;
+import com.molecamp.molecamping.entity.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,7 +29,7 @@ public class CommunityComment {
 
     @ManyToOne
     @JoinColumn(name="userId")
-    private User user;
+    private UserEntity userEntity;
 
     @CreationTimestamp
     private Timestamp createdDate;

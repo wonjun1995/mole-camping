@@ -9,7 +9,6 @@ function uploadSummernoteImageFile(file, editor) {
         processData: false,
         success: function (data) {
             //항상 업로드된 파일의 url이 있어야 한다.
-            console.log(data);
             $('.summernote').data("url", data.url)
             $(editor).summernote('insertImage', data.url);
         }
@@ -19,8 +18,6 @@ function uploadSummernoteImageFile(file, editor) {
 (function ($) {
 
     "use strict";
-    console.log("캠핑스팟 JS 활성화")
-
     $('.spot_save').on('submit', async function (event) {
         event.preventDefault();
         let check = true;
@@ -40,7 +37,6 @@ function uploadSummernoteImageFile(file, editor) {
 
         //title,description,address 공백 체크
         if (blankCheck(address) || blankCheck(title) || blankCheck(description)) {
-            console.log("Empty Space exists")
             check = false;
             swalAlert({icon: "error", html: "폼을 모두 작성해주세요!"})
         }
@@ -51,17 +47,14 @@ function uploadSummernoteImageFile(file, editor) {
             description: description
         };
 
-        console.log(data);
         //게시글 작성
         if (check === true) {
-            console.log("게시글 작성 완료")
             $.ajax({
                 url: "/api/campingspot/post",
                 type: "POST",
                 data: data,
                 success: function (response) {
                     if (!response.error) {
-                        console.log(response);
                         swalAlert({
                             icon: "success",
                             html: "게시글이 등록되었습니다",
