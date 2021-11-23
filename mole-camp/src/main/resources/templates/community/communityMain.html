@@ -48,7 +48,6 @@ last=${start +9 < postAllList.totalPages ? start + 9 : postAllList.totalPages}">
                             <li class="page-item" th:each="page : ${#numbers.sequence(start,last)}" th:class="${page == postAllList.number + 1} ? 'active'" >
                                 <a class="page-link" th:href="@{/community/post?page={page}(page=${page}-1)}" th:text="${page}"></a>
                             </li>
-                            <!--<li class="page-item"><a class="page-link" th:href="@{?page={pagenumber}(pagenumber=${pagenumber})}" th:text="{pagenumber}"></a></li>-->
                             <li class="page-item disabled" th:if="${postAllList.last}">
                                 <a class="page-link" th:href="@{?page={next}(next=${next})}">Next</a>
                             </li>
@@ -82,7 +81,7 @@ last=${start +9 < postAllList.totalPages ? start + 9 : postAllList.totalPages}">
                             <button class="button rounded-0 primary-bg w-100 btn_1" type="submit">검색</button>
                         </form>
                     </aside>
-
+<!--TODO: 카테고리 별 게시글 건수 및 카테고리 클릭시 해당 게시글만 나오게 기능 개발 필요 -->
                     <aside class="single_sidebar_widget post_category_widget">
                         <h4 class="widget_title">Category</h4>
                         <ul class="list cat-list" th:each="categories:${category_type}">

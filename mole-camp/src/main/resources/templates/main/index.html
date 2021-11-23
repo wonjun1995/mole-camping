@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="euc-kr">
+
+<head th:replace="fragments/config :: headFragment"></head>
+
+<body>
+<!--::header part start::-->
+<header th:replace="fragments/header :: headerFragment"></header>
+<!-- Header part end-->
+
+<!-- banner part start-->
+
+
+<!--<div layout:fragment="content">-->
+<div>
+    <section class="banner_part">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-10">
+                    <div class="banner_text text-center">
+                        <div class="banner_text_iner">
+                            <p>두더지 기초 공사중 땅파는중</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- booking part start-->
+    <section class="booking_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="booking_menu">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab"
+                                   aria-controls="hotel" aria-selected="true">camping</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="booking_content">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="hotel" role="tabpanel"
+                                 aria-labelledby="hotel-tab">
+                                <div class="booking_form">
+                                    <form action="#">
+                                        <div class="form-row">
+                                            <div class="form_colum">
+                                                <select class="nc_select">
+                                                    <option selected>Choosace place</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="form_colum">
+                                                <input id="datepicker_1" placeholder="Check in date">
+                                                <script>
+                                                    $('#datepicker_1').datepicker();
+                                                </script>
+                                            </div>
+                                            <div class="form_colum">
+                                                <input id="datepicker_2" placeholder="Check out date">
+                                                <script>
+                                                    $('#datepicker_2').datepicker();
+                                                </script>
+                                            </div>
+                                            <div class="form_colum">
+                                                <select class="nc_select">
+                                                    <option selected>Persone</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="form_btn">
+                                                <a href="#" class="btn_1">search</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--top place start-->
+    <section class="top_place section_padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <div class="section_tittle text-center">
+                        <h2>리뷰 수가 높은 캠핑장</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- 캠핑장 Database에서 데이터 추출 후 반복문으로 5개까지 보여주기 -->
+            <div class="row">
+                <div class="col-lg-5 col-md-5">
+                    <div class="single_place">
+                        <img src="/images/testcamp/camping7.jpg" alt="">
+                        <div class="hover_Text d-flex align-items-end justify-content-between">
+                            <div class="hover_text_iner">
+                                <a href="#" class="place_btn">travel</a>
+                                <h3>Saintmartine Iceland</h3>
+                                <p>Technaf, Bangladesh</p>
+                                <div class="place_review">
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <span>(210 review)</span>
+                                </div>
+                            </div>
+                            <div class="details_icon text-right">
+                                <i class="ti-share"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5">
+                    <div class="single_place">
+                        <img src="/images/testcamp/camping6.jpg" alt="">
+                        <div class="hover_Text d-flex align-items-end justify-content-between">
+                            <div class="hover_text_iner">
+                                <a href="#" class="place_btn">travel</a>
+                                <h3>Saintmartine Iceland</h3>
+                                <p>Technaf, Bangladesh</p>
+                                <div class="place_review">
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <span>(210 review)</span>
+                                </div>
+                            </div>
+                            <div class="details_icon text-right">
+                                <i class="ti-share"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5">
+                    <div class="single_place">
+                        <img src="/images/testcamp/camping5.jpg" alt="">
+                        <div class="hover_Text d-flex align-items-end justify-content-between">
+                            <div class="hover_text_iner">
+                                <a href="#" class="place_btn">travel</a>
+                                <h3>Saintmartine Iceland</h3>
+                                <p>Technaf, Bangladesh</p>
+                                <div class="place_review">
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <span>(210 review)</span>
+                                </div>
+                            </div>
+                            <div class="details_icon text-right">
+                                <i class="ti-share"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5">
+                    <div class="single_place">
+                        <img src="/images/testcamp/camping4.jpg" alt="">
+                        <div class="hover_Text d-flex align-items-end justify-content-between">
+                            <div class="hover_text_iner">
+                                <a href="#" class="place_btn">travel</a>
+                                <h3>Saintmartine Iceland</h3>
+                                <p>Technaf, Bangladesh</p>
+                                <div class="place_review">
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <span>(210 review)</span>
+                                </div>
+                            </div>
+                            <div class="details_icon text-right">
+                                <i class="ti-share"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5">
+                    <div class="single_place">
+                        <img src="/images/testcamp/camping2.jpg" alt="">
+                        <div class="hover_Text d-flex align-items-end justify-content-between">
+                            <div class="hover_text_iner">
+                                <a href="#" class="place_btn">travel</a>
+                                <h3>Saintmartine Iceland</h3>
+                                <p>Technaf, Bangladesh</p>
+                                <div class="place_review">
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <a href="#"><i class="fas fa-star"></i></a>
+                                    <span>(210 review)</span>
+                                </div>
+                            </div>
+                            <div class="details_icon text-right">
+                                <i class="ti-share"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn_1 text-center">더보기</a>
+        </div>
+    </section>
+</div>
+<!--top place end-->
+
+
+<!-- footer part start-->
+<footer th:replace="fragments/footer :: footerFragment"></footer>
+<!-- footer part end-->
+
+
+</body>
+
+</html>

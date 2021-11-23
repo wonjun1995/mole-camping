@@ -2,7 +2,7 @@ package com.molecamp.molecamping.controller.api;
 
 import com.molecamp.molecamping.dto.ResponseDto;
 import com.molecamp.molecamping.entity.user.User;
-import com.molecamp.molecamping.service.UserService;
+import com.molecamp.molecamping.service.main.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;

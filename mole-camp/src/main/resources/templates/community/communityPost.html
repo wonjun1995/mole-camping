@@ -5,8 +5,10 @@
 
 <head th:replace="fragments/config :: headFragment"></head>
 <!-- include libraries(jQuery, bootstrap) -->
-<script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
+<!-- <script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js}"></script> -->
 <!-- include summernote css/js -->
+
+<script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
 <link th:href="@{https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css}" rel="stylesheet">
 <script th:src="@{https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js}"></script>
 <link rel="stylesheet" th:href="@{/css/communityPost/post-writing-style.css}">
@@ -37,14 +39,14 @@
                 <div class="form-group">
                     <textarea class="form-control summernote" rows="20" name="content"></textarea>
                 </div>
-                <button type="submit " class="button rounded-0 w-100 btn_1">등록</button>
+                <button type="submit" class="button rounded-0 w-100 btn_1">등록</button>
             </form>
         </div>
     </div>
     <script>
         $('.summernote').summernote({
             tabsize: 2,
-            height: 800,
+            height: 500,
             callbacks: {
                 onImageUpload: function (files) {
                     uploadSummernoteImageFile(files[0], this);

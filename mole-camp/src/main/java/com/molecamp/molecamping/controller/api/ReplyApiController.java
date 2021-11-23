@@ -2,9 +2,9 @@ package com.molecamp.molecamping.controller.api;
 
 import com.molecamp.molecamping.dto.ReplyDto;
 import com.molecamp.molecamping.dto.ResponseDto;
-import com.molecamp.molecamping.repository.CommunityPostRepository;
-import com.molecamp.molecamping.service.CommunityCommentService;
-import com.molecamp.molecamping.service.CommunityPostService;
+import com.molecamp.molecamping.repository.community.CommunityPostRepository;
+import com.molecamp.molecamping.service.community.CommunityCommentService;
+import com.molecamp.molecamping.service.community.CommunityPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

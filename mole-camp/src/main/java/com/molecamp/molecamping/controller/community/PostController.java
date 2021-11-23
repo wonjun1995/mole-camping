@@ -1,9 +1,9 @@
 package com.molecamp.molecamping.controller.community;
 
 import com.molecamp.molecamping.config.auth.UserDetail;
-import com.molecamp.molecamping.service.CategoryService;
-import com.molecamp.molecamping.service.CommunityCommentService;
-import com.molecamp.molecamping.service.CommunityPostService;
+import com.molecamp.molecamping.service.community.CategoryService;
+import com.molecamp.molecamping.service.community.CommunityCommentService;
+import com.molecamp.molecamping.service.community.CommunityPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
