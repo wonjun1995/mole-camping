@@ -1,22 +1,27 @@
-package com.molecamp.molecamping.service.main;
+package com.molecamp.molecamping.service.user;
 
-import com.molecamp.molecamping.entity.user.RoleEntity;
+import com.molecamp.molecamping.entity.user.UserRoleEntity;
 import com.molecamp.molecamping.entity.user.RoleType;
 import com.molecamp.molecamping.entity.user.UserEntity;
-import com.molecamp.molecamping.repository.main.UserRepository;
+import com.molecamp.molecamping.repository.user.UserRepository;
+import com.molecamp.molecamping.repository.user.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserRoleRepository userRoleRepository;
+
     @Autowired
     private BCryptPasswordEncoder encoder;
 
@@ -24,18 +29,16 @@ public class UserService {
     public void join(@RequestBody UserEntity userEntity) {
         String rawPassword= userEntity.getPassword();
         String encPassword= encoder.encode(rawPassword);
+        userEntity.setPassword(encPassword);
 
         // 캠퍼 권한 설정
-        List<RoleEntity> roles = new ArrayList<>();
-        RoleEntity camperRole = new RoleEntity();
+        UserRoleEntity camperRole = new UserRoleEntity();
         camperRole.setName(RoleType.ROLE_CAMPER);
-        roles.add(camperRole);
-
-        userEntity.setPassword(encPassword);
-        userEntity.setRoles(roles);
+        camperRole.setUser(userEntity);
 
         try {
             userRepository.save(userEntity);
+            userRoleRepository.save(camperRole);
         }catch (Exception e){
             e.printStackTrace();
         }

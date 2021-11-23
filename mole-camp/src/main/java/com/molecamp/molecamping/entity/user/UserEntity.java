@@ -1,18 +1,15 @@
 package com.molecamp.molecamping.entity.user;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.molecamp.molecamping.entity.community.CommunityComment;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.management.relation.Role;
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Builder
@@ -41,6 +38,6 @@ public class UserEntity {
     @Column(name = "tel", nullable = false, length = 255)
     private String tel; // 전화번호
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, targetEntity = RoleEntity.class)
-    private List<RoleEntity> roles = new ArrayList<>();
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, targetEntity = UserRoleEntity.class)
+    private Set<UserRoleEntity> roles = new HashSet<>();
 }

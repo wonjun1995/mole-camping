@@ -1,7 +1,7 @@
 package com.molecamp.molecamping.config.auth;
 
 import com.molecamp.molecamping.entity.user.UserEntity;
-import com.molecamp.molecamping.repository.main.UserRepository;
+import com.molecamp.molecamping.repository.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

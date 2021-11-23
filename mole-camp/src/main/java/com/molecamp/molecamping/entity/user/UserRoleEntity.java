@@ -16,7 +16,7 @@ import javax.persistence.*;
         name = "UNIQUE_USERNAME",
         columnNames = {"name", "user_id"})
 })
-public class RoleEntity {
+public class UserRoleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -25,7 +25,7 @@ public class RoleEntity {
     @Enumerated(EnumType.STRING)
     private RoleType name;    // 권한 이름
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = UserEntity.class)
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = UserEntity.class)
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
 }
