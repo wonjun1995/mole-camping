@@ -26,4 +26,12 @@ public class CampingSpotService {
     public Page<CampingSpot> listAll(Pageable pageable) {
         return campingspotRepository.findAll(pageable);
     }
+
+    @Transactional(readOnly = true)
+    public CampingSpot spotDetail(int id) {
+        return campingspotRepository.findById(id)
+                .orElseThrow(()->{
+                    return new IllegalArgumentException("상세 보기 실패: Cannot Found ID");
+                });
+    }
 }

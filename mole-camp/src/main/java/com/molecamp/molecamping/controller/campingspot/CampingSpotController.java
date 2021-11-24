@@ -34,6 +34,12 @@ public class CampingSpotController {
     }
 
     //캠핑스팟 상세보기
+    @GetMapping("/campingspot/{id}")
+    public String communityPostDetail(Model model, @PathVariable int id, @AuthenticationPrincipal UserDetail userDetail) {
+        model.addAttribute("authUser",userDetail.getUserEntity());
+        model.addAttribute("spot",campingSpotService.spotDetail(id));
+        return "campingspot/campingspot_detail";
+    }
 
 
 }
