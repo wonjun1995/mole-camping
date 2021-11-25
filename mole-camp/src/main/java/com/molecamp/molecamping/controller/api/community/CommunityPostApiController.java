@@ -1,4 +1,4 @@
-package com.molecamp.molecamping.controller.api;
+package com.molecamp.molecamping.controller.api.community;
 
 import com.google.gson.JsonObject;
 import com.molecamp.molecamping.config.auth.UserDetail;

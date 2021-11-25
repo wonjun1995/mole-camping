@@ -68,8 +68,65 @@ function uploadSummernoteImageFile(file, editor) {
                 }
             })
         }
+    })
 
+    $('.spot_update').on('submit',async function (e){
+        e.preventDefault();
+        let check = true;
 
+        let spotId =$("input[name = 'spot_id']").val()
+        let title = $("input[name = 'title']").val()
+        let description = $("textarea[name = 'description']").val()
+
+        if (blankCheck(title) || blankCheck(description)) {
+            check = false;
+            swalAlert({icon: "error", html: "폼을 모두 작성해주세요!"})
+        }
+        let data = {title:title,description:description}
+
+        //게시글 수정
+        if (check === true) {
+            $.ajax({
+                url: "/api/campingspot/"+spotId+"/update",
+                type: "PUT",
+                data: data,
+                success: function (response) {
+                    if (!response.error) {
+                        swalAlert({
+                            icon: "success",
+                            html: "게시글이 수정되었습니다",
+                            preConfirm: () => {
+                                window.location.href = "/campingspot/"+spotId
+                            }
+                        })
+                    } else {
+                        console.log("error", response);
+                    }
+                }
+            })
+        }
+    })
+
+    $('.btn-delete').on('click', async function (event) {
+        let spotId = $(".blog_details_noshadow input[name='spot_id']").val()
+
+        $.ajax({
+            url: "/api/campingspot/" + spotId + "/delete",
+            type: "DELETE",
+            success: function (response) {
+                if (!response.error) {
+                    swalAlert({
+                        icon: "success",
+                        html: "캠핑스팟이 삭제되었습니다",
+                        preConfirm: () => {
+                            window.location.href = "/campingspot"
+                        }
+                    })
+                } else {
+                    console.log("error", response);
+                }
+            }
+        })
     })
 
 })(jQuery)

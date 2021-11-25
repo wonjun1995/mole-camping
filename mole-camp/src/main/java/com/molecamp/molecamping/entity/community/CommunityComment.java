@@ -1,10 +1,7 @@
 package com.molecamp.molecamping.entity.community;
 
 import com.molecamp.molecamping.entity.user.UserEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;

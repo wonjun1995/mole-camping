@@ -64,12 +64,12 @@
                         <p>
                             <button class="d_btn mini" onclick="panTo()">스팟으로 이동</button>
                         </p>
-
-                        <h4>설명</h4>
                         <input type="hidden" name="latitude_y" th:value="${spot.latitude_y}"
                                class="form-control d_form std" placeholder="Y">
                         <input type="hidden" name="longtitude_x" th:value="${spot.longtitude_x}"
                                class="form-control d_form std" placeholder="X">
+
+                        <h4>설명</h4>
                         <div th:utext="${spot.description}"></div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                                 </div>
                                 <div class="reply_delete" th:if="${replylist.userEntity.id} == ${authUser.id}">
                                     <input type="hidden" name="delete_reply_id" th:value="${replylist.id}">
-                                    <a type="button" class="btn-reply reply-btn">삭제</a>
+                                    <a type="button" class="btn-reply delete-reply">삭제</a>
                                 </div>
                             </div>
                         </div>
@@ -104,16 +104,14 @@
                 </div>
                 <div class="comment-form">
                     <h4>댓글 쓰기</h4>
-
                     <form class="form-contact comment_form reply_write_form" method="post">
                         <div class="card">
                             <input type="hidden" name="reply_user_id" th:value="${authUser.id}"/>
-                            <input type="hidden" name="reply_post_id" th:value="${spot.id}"/>
                             <div class="card-body">
-                                <label>
-                                    <textarea name="reply_content" class="form-control" rows="1"></textarea>
-                                </label>
-                                <button type="submit" class="btn-1">등록</button>
+                                <textarea name="reply_content" class="form-control" rows="1"></textarea>
+                                <div th:align="right">
+                                    <button type="submit" class="btn-reply">등록</button>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -161,5 +159,7 @@
 <script th:src="@{/js/common/kakaomap.js}" type="text/javascript"></script>
 <script th:src="@{//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js}"></script>
 <script th:src="@{/js/campingspot/campingspot.js}" type="text/javascript"></script>
+<script th:src="@{/js/campingspot/campingspot_reply.js}" type="text/javascript"></script>
+
 </body>
 </html>

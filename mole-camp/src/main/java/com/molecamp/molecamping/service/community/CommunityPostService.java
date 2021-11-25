@@ -40,7 +40,7 @@ public class CommunityPostService {
     }
 
     //community 게시글 수정 및 저장
-    @Transactional()
+    @Transactional
     public void updatePost(int id, CommunityPost post) {
         CommunityPost exitstedPost = comPostRepository.findById(id)
                 .orElseThrow(()->{

@@ -1,10 +1,7 @@
 package com.molecamp.molecamping.entity.campingspot;
 
 import com.molecamp.molecamping.entity.user.UserEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -56,7 +53,7 @@ public class CampingSpot {
     public UserEntity userEntity;
 
     //캠핑스팟 댓글과 양방향 맵핑
-    @OneToMany(mappedBy = "camping_spot", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "camping_spot", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @OrderBy("id desc")
     private List<CampingSpotComment> reply;
 

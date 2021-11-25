@@ -34,4 +34,19 @@ public class CampingSpotService {
                     return new IllegalArgumentException("상세 보기 실패: Cannot Found ID");
                 });
     }
+
+    @Transactional
+    public void updateSpot(int id, CampingSpot spot) {
+        CampingSpot existedSpot= campingspotRepository.findById(id)
+                .orElseThrow(()->{
+                    return new IllegalArgumentException("ID 찾기 실패: Cannot Found ID");
+                });
+        existedSpot.setTitle(spot.getTitle());
+        existedSpot.setDescription(spot.getDescription());
+    }
+
+    @Transactional
+    public void deleteSpot(int id){
+        campingspotRepository.deleteById(id);
+    }
 }

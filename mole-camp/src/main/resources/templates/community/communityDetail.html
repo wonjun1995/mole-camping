@@ -64,7 +64,9 @@
                                 <label>
                                     <textarea name="reply_content" class="form-control" rows="1"></textarea>
                                 </label>
-                                <button type="submit" class="btn-1">등록</button>
+                                <div th:align="right">
+                                    <button type="submit" class="btn-reply">등록</button>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -105,7 +107,7 @@
     <span class="login-form__fail-msg" th:text="${signUpFailMsg}"></span>
 </section>
 <script th:src="@{/js/community/postDelete.js}" type="text/javascript"></script>
-<script th:src="@{/js/community/reply.js}" type="text/javascript"></script>
+<script th:src="@{/js/community/community_reply.js}" type="text/javascript"></script>
 <footer th:replace="fragments/footer :: footerFragment"></footer>
 </body>
 </html>

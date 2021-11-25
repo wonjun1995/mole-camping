@@ -13,7 +13,4 @@ public interface CommunityCommentRepository extends JpaRepository<CommunityComme
     @Query(value = "INSERT INTO CommunityComment(userId,postId,content,createdDate) VALUES(?1,?2,?3,now())",nativeQuery = true)
     int replySave(int userId,int postId,String content);
 
-    @Modifying
-    @Query(value = "SELECT * FROM CommunityComment WHERE postId = ?1",nativeQuery = true)
-    Iterable<CommunityComment> replyAllByPostId(int postId);
 }

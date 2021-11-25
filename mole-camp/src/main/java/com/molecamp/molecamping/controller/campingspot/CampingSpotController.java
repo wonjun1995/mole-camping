@@ -41,5 +41,13 @@ public class CampingSpotController {
         return "campingspot/campingspot_detail";
     }
 
+    //캠핑스팟 수정 화면
+    @GetMapping("/campingspot/{id}/update")
+    public String campingspot_update(Model model,@PathVariable int id,@AuthenticationPrincipal UserDetail userDetail){
+        model.addAttribute("authUser",userDetail.getUserEntity());
+        model.addAttribute("spot",campingSpotService.spotDetail(id));
+        return "campingspot/campingspot_update";
+    }
+
 
 }

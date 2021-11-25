@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReplyDto {
-    private int userId;
-    private int postId;
+public class CampingSpotReplyDto {
+    private int writer_id;
+    private int camping_spot_id;
     private String content;
-
 }
