@@ -75,7 +75,6 @@
                 </div>
                 <p th:align="right">
                     <a type="button" class="btn-1" th:onclick="history.back()">돌아가기</a>
-                    <!--작성자와 현재 로그인한 사용자의 아이디가 일치할 때만 보이게끔 설정 필요-->
                     <th:block th:if="${spot.userEntity.username} == ${authUser.username}">
                         | <a th:href="@{/campingspot/{spotId}/update(spotId=${spot.id})}"
                              class="btn-1 btn-update">수정</a> |

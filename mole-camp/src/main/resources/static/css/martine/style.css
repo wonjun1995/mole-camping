@@ -2380,10 +2380,10 @@ ul {
 /**************** banner part css start ****************/
 /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
 .banner_part {
-    height: 600px;
+    height: 800px;
     position: relative;
     overflow: hidden;
-    background-image: url(../../images/banner_bg.jpg);
+    background-image: url(../../images/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
