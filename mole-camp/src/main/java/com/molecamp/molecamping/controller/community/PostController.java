@@ -25,9 +25,19 @@ public class PostController {
     private CommunityCommentService communityCommentService;
 
     //게시글 목록 화면
-    @GetMapping("/community/post") // TODO : 게시글 화면 페이징 번호 10이상일 경우 1~-10 11~20 21~30 으로 보이게 처리
+    @GetMapping("/community/post")
     public String communityPostMain(Model model,@PageableDefault(size=5,sort = "id",direction = Sort.Direction.DESC) Pageable pageable){
         model.addAttribute("postAllList",communityPostService.postListAll(pageable));
+        model.addAttribute("category_type",categoryService.type_all());
+        model.addAttribute("previous",pageable.previousOrFirst().getPageNumber());
+        model.addAttribute("next",pageable.next().getPageNumber());
+        return "community/communityMain";
+    }
+
+    //카테고리별 게시글 목록 화면
+    @GetMapping("/community/post/category/{categoryId}")
+    public String communityCategorySearch(@PathVariable int categoryId, Model model,@PageableDefault(size=5,sort = "id",direction = Sort.Direction.DESC) Pageable pageable){
+        model.addAttribute("postAllList",communityPostService.postCategoryAll(categoryId,pageable));
         model.addAttribute("category_type",categoryService.type_all());
         model.addAttribute("previous",pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next",pageable.next().getPageNumber());

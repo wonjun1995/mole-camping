@@ -19,13 +19,14 @@ function uploadSummernoteImageFile(file, editor) {
     "use strict";
 
     $('.save_form').on('submit',async function (event){
+        console.log("save_form activate");
         event.preventDefault();
-        let check=true;
 
-        let categoryType = $("option:selected").val()
-        let title = $("input[name = 'title']").val()
-        let content = $("textarea[name = 'content']").val()
-        let mainImage=$('.summernote').data("url")
+        let check=true;
+        let categoryType = $("option:selected").val();
+        let title = $("input[name = 'title']").val();
+        let content = $("textarea[name = 'content']").val();
+        let mainImage=$('.summernote').data("url");
 
         //title,categoryType,content 공백 체크
         if(blankCheck(categoryType) || blankCheck(title) || blankCheck(content)){
@@ -33,12 +34,14 @@ function uploadSummernoteImageFile(file, editor) {
             swalAlert({icon:"error",html:"폼을 모두 작성해주세요!"})
         }
 
+        let data={title: title, content: content, category: categoryType,img_path:mainImage}
+
         //게시글 작성
         if(check === true){
             $.ajax({
                 url:"/api/community/post",
                 type:"POST",
-                data:{title: title, content: content, category: categoryType,img_path:mainImage},
+                data:data,
                 success: function (response) {
                     if (!response.error) {
                         swalAlert({

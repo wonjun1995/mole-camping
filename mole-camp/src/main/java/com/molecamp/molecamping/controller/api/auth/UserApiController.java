@@ -1,4 +1,4 @@
-package com.molecamp.molecamping.controller.api;
+package com.molecamp.molecamping.controller.api.auth;
 
 import com.molecamp.molecamping.dto.ResponseDto;
 import com.molecamp.molecamping.entity.user.UserEntity;

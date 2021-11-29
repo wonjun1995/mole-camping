@@ -1,6 +1,7 @@
 package com.molecamp.molecamping.entity.community;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.molecamp.molecamping.entity.common.Category;
 import com.molecamp.molecamping.entity.user.UserEntity;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -33,8 +34,9 @@ public class CommunityPost {
     @JoinColumn(name="userId")
     private UserEntity userEntity;  //DB는 오브젝트를 저장할 수 없다. FK,자바는 오브젝트를 저장할 수 있다.
 
-    @Column(nullable = false)
-    private String category;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     @Column
     private String img_path;

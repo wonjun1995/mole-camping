@@ -28,8 +28,8 @@
                 <div class="container row">
                     <div>
                         <select class="writingSelectBox">
-                            <option th:each="list: ${category_type}" th:text="${list.getType()}"
-                                    th:name="${list.getType()}"></option>
+                            <option th:each="list: ${category_type}" th:text="${list.type}" th:value="${list.id}"
+                                    th:name="${list.id}"></option>
                         </select>
                     </div>
                     <div class="writingTitle">

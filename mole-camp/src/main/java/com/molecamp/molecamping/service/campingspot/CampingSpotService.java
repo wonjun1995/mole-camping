@@ -16,17 +16,19 @@ public class CampingSpotService {
     @Autowired
     private CampingspotRepository campingspotRepository;
 
+    //campingspot 저장
     @Transactional
     public void saveSpot(CampingSpot spot, UserEntity userEntity) {
         spot.setUserEntity(userEntity);
         campingspotRepository.save(spot);
     }
-
+    //campingspot 메인화면 목록
     @Transactional(readOnly = true)
     public Page<CampingSpot> listAll(Pageable pageable) {
         return campingspotRepository.findAll(pageable);
     }
 
+    //campingspot 상세보기
     @Transactional(readOnly = true)
     public CampingSpot spotDetail(int id) {
         return campingspotRepository.findById(id)
@@ -35,16 +37,18 @@ public class CampingSpotService {
                 });
     }
 
+    //campingspot 수정
     @Transactional
     public void updateSpot(int id, CampingSpot spot) {
         CampingSpot existedSpot= campingspotRepository.findById(id)
                 .orElseThrow(()->{
-                    return new IllegalArgumentException("ID 찾기 실패: Cannot Found ID");
+                    return new IllegalArgumentException("게시글 수정 실패: Cannot Found ID");
                 });
         existedSpot.setTitle(spot.getTitle());
         existedSpot.setDescription(spot.getDescription());
     }
 
+    //campingspot 삭제s
     @Transactional
     public void deleteSpot(int id){
         campingspotRepository.deleteById(id);

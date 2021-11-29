@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import com.molecamp.molecamping.config.auth.UserDetail;
 import com.molecamp.molecamping.dto.ResponseDto;
 import com.molecamp.molecamping.entity.community.CommunityPost;
+import com.molecamp.molecamping.service.community.CategoryService;
 import com.molecamp.molecamping.service.community.CommunityPostService;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class CommunityPostApiController {
 
     @Autowired
     private CommunityPostService communityPostService;
+
 
 
     //게시글 저장
