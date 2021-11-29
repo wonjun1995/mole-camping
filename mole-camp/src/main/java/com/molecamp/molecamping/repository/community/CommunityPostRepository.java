@@ -9,5 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CommunityPostRepository extends JpaRepository<CommunityPost,Integer> {
 
+    //@Query("SELECT * FROM CommunityPost WHERE category_id=?1") 와 같음
     Page<CommunityPost> findByCategoryId(int category, Pageable pageable);
+
+    //@Query("SELECT * FROM CommunityPost WHERE title LIKE '%keyword%') 와 같음
+    Page<CommunityPost> findByTitleContaining(String keyword, Pageable pageable);
 }

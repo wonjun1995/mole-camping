@@ -67,4 +67,9 @@ public class CommunityPostService {
     public void deletePost(int id) {
        comPostRepository.deleteById(id);
     }
+
+    @Transactional(readOnly = true)
+    public Page<CommunityPost> keywordSearch(String keyword, Pageable pageable) {
+        return comPostRepository.findByTitleContaining(keyword,pageable);
+    }
 }
