@@ -68,6 +68,7 @@ public class CommunityPostService {
        comPostRepository.deleteById(id);
     }
 
+    //키워드 검색
     @Transactional(readOnly = true)
     public Page<CommunityPost> keywordSearch(String keyword, Pageable pageable) {
         return comPostRepository.findByTitleContaining(keyword,pageable);

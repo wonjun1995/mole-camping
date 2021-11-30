@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CampingSpotController {
@@ -48,6 +49,24 @@ public class CampingSpotController {
         model.addAttribute("spot",campingSpotService.spotDetail(id));
         return "campingspot/campingspot_update";
     }
+
+    //게시글 키워드 검색
+    @GetMapping("/campingspot/search")
+    public String campingSpotKeywordSearch(Model model, @RequestParam(value = "keyword") String keyword, @PageableDefault(size=5,sort = "id",direction = Sort.Direction.DESC) Pageable pageable){
+        model.addAttribute("spotAllList",campingSpotService.keywordSearch(keyword,pageable));
+        model.addAttribute("previous",pageable.previousOrFirst().getPageNumber());
+        model.addAttribute("next",pageable.next().getPageNumber());
+        return "campingspot/campingspot_main";
+    }
+
+    /*//카테고리별 게시글 목록 화면
+    @GetMapping("/campingspot/category/{categoryId}")
+    public String campingSpotCategorySearch(@PathVariable String categoryId, Model model,@PageableDefault(size=5,sort = "id",direction = Sort.Direction.DESC) Pageable pageable){
+        model.addAttribute("spotAllList",campingSpotService.regionAll(categoryId,pageable));
+        model.addAttribute("previous",pageable.previousOrFirst().getPageNumber());
+        model.addAttribute("next",pageable.next().getPageNumber());
+        return "campingspot/campingspot_main";
+    }*/
 
 
 }
