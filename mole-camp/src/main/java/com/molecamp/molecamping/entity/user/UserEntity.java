@@ -1,12 +1,14 @@
 package com.molecamp.molecamping.entity.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.molecamp.molecamping.entity.reservation.Reservation;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -39,5 +41,6 @@ public class UserEntity {
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, targetEntity = UserRoleEntity.class)
     @JsonIgnoreProperties({"user"})
-    private Set<UserRoleEntity> roles = new HashSet<>();
+    private Set<UserRoleEntity> roles;
+
 }

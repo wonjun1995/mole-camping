@@ -88,9 +88,9 @@ last=${start +9 < postAllList.totalPages ? start + 9 : postAllList.totalPages}">
                     </aside>
                     <aside class="single_sidebar_widget post_category_widget">
                         <h4 class="widget_title">Category</h4>
-                        <ul class="slist cat-list"><li><a th:href="@{/community/post}" class="d-flex"><p>전체보기</p></a></li></ul>
-                        <ul class="list cat-list" th:each="categories:${category_type}">
-                            <li>
+                        <ul class="list cat-list">
+                            <li><a th:href="@{/community/post}" class="d-flex"><p th:text="전체보기"></p></a></li>
+                            <li th:each="categories:${category_type}">
                                 <a th:href="@{/community/post/category/{categoryId}(categoryId=${categories.id})}" class="d-flex">
                                     <p th:text="${categories.type}"></p>
                                 </a>

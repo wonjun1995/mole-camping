@@ -8,8 +8,100 @@
 <body>
 <header th:replace="fragments/header :: headerFragment"></header>
 
-<h1>캠핑장 정보화면 메인</h1>
+<!--================Blog Area =================-->
+<section class="blog_area section_padding">
+    <div class="container">
+        <h1 class="blog_area section_padding container">
+            두더지캠핑 > 캠핑장
+        </h1>
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+                    <article class="blog_item" th:each="list:${campsite}">
+                        <div class="blog_item_img" th:if="${#strings.isEmpty(list.firstImageUrl)}">
+                            <img class="card-img rounded-0" th:src="@{/images/ddgcamp_L.png}" alt="">
+                        </div>
+                        <div class="blog_item_img" th:if="${not #strings.isEmpty(list.firstImageUrl)}">
+                            <img class="card-img rounded-0" th:src="${list.firstImageUrl}" alt="">
+                        </div>
+                        <div class="blog_details">
+                            <a class="d-inline-block" th:href="@{/campsite/{listId}(listId=${list.id})}">
+                                <h2 th:text="${list.facltNm}"></h2>
+                            </a>
+                            <p th:text="${list.addr1}"></p>
+                            <p th:text="${list.induty}"></p>
+                            <ul class="blog-info-link">
+                                <li><a href="#"> <i class="fa fa-phone" th:text=" ' ' + ${list.tel}"></i></a>
+                                </li>
+                                <!--                                <li><a href="#"> <i class="far fa-comments"-->
+                                <!--                                                    th:text="' ' + ${list.reply.size()}"></i></a></li>-->
+                            </ul>
+                        </div>
+                    </article>
+
+                    <nav class="blog_left_sidebar" th:if="${campsite.isEmpty()}">
+                        <h2>게시물이 존재하지 않습니다.</h2>
+                    </nav>
+                    <nav aria-label="Page navigation example" th:if="!${campsite.isEmpty()}">
+                        <ul class="pagination justify-content-center"
+                            th:with="start=${T(Math).floor(campsite.number/10)*10 +1},
+                                last=${start +9 < campsite.totalPages ? start + 9 : campsite.totalPages}">
+                            <li class="page-item disabled" th:if="${campsite.first}">
+                                <a class="page-link " th:href="@{?page={prev}(prev=${previous})}">Previous</a>
+                            </li>
+                            <li class="page-item" th:if="!${campsite.first}">
+                                <a class="page-link" th:href="@{?page={prev}(prev=${previous})}">Previous</a>
+                            </li>
+                            <li class="page-item" th:each="page : ${#numbers.sequence(start,last)}"
+                                th:class="${page == campsite.number + 1} ? 'active'">
+                                <a class="page-link" th:href="@{?page={page}(page=${page}-1)}"
+                                   th:text="${page}"></a>
+                            </li>
+                            <li class="page-item disabled" th:if="${campsite.last}">
+                                <a class="page-link" th:href="@{?page={next}(next=${next})}">Next</a>
+                            </li>
+                            <li class="page-item" th:if="!${campsite.last}">
+                                <a class="page-link" th:href="@{?page={next}(next=${next})}">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    <aside class="single_sidebar_widget search_widget">
+                        <form th:action="@{/campsite}" method="get">
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <input type="text" name="keyword" class="form-control" placeholder='캠핑장 검색'
+                                           onfocus="this.placeholder = ''"
+                                           onblur="this.placeholder = '캠핑장 검색'">
+                                </div>
+                            </div>
+                            <button class="button rounded-0 primary-bg w-100 btn_1" type="submit">검색</button>
+                        </form>
+                    </aside>
+                    <aside class="single_sidebar_widget post_category_widget">
+                        <h4 class="widget_title">지역별 검색</h4>
+                        <ul class="list cat-list">
+                            <li><a th:href="@{/campsite}" class="d-flex"><p th:text="전체보기"></p></a></li>
+                            <li th:each="data:${RegionType}">
+                                <a th:href="@{/campsite?region={region}(region=${data.doNm})}" class="d-flex">
+                                    <p th:text="${data.doNm}" th:value="${data.doNm}" th:name="region"></p>
+                                    <!--<p th:text="|(${data.count})|" th:value="${data.doNm}"></p>-->
+                                </a>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <footer th:replace="fragments/footer :: footerFragment"></footer>
+<script th:src="@{/js/campsite/campsite.js}" type="text/javascript"></script>
 </body>
 </html>

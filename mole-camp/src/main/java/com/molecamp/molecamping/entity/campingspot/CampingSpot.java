@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -55,7 +56,7 @@ public class CampingSpot {
     //캠핑스팟 댓글과 양방향 맵핑
     @OneToMany(mappedBy = "camping_spot", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @OrderBy("id desc")
-    private List<CampingSpotComment> reply;
+    private Set<CampingSpotComment> reply;
 
 
 }

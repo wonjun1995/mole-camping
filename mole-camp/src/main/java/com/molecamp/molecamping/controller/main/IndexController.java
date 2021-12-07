@@ -17,13 +17,6 @@ public class IndexController {
         return "main/about";
     }
 
-    //캠핑장
-    @GetMapping("/campsite")
-    public String campsite(){
-        return "campsite/campsite_main";
-    }
-
-
 
     //캠핑여지도
     @GetMapping("/campingmap")

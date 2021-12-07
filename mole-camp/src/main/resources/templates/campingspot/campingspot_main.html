@@ -22,7 +22,7 @@
 <!--                            <img class="card-img rounded-0" th:src="${list.img_path}" alt="">-->
 <!--                        </div>-->
                         <div class="blog_details">
-                            <a class="d-inline-block" th:href="@{/campingspot/{listId}(listId=${list.id})}">
+                            <a class="d-inline-block" th:href="@{/campsite/{listId}(listId=${list.id})}">
                                 <h2 th:text="${list.title}"></h2>
                             </a>
                             <p th:text="${list.address}"></p>

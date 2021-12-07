@@ -30,13 +30,13 @@ public class CampingSpotController {
 
     //캠핑스팟 등록 화면
     @GetMapping("/campingspot/post/save")
-    public String campingspot_post(){
+    public String campingspotPost(){
         return "campingspot/campingspot_post";
     }
 
     //캠핑스팟 상세보기
     @GetMapping("/campingspot/{id}")
-    public String communityPostDetail(Model model, @PathVariable int id, @AuthenticationPrincipal UserDetail userDetail) {
+    public String campingspotDetail(Model model, @PathVariable int id, @AuthenticationPrincipal UserDetail userDetail) {
         model.addAttribute("authUser",userDetail.getUserEntity());
         model.addAttribute("spot",campingSpotService.spotDetail(id));
         return "campingspot/campingspot_detail";
@@ -44,7 +44,7 @@ public class CampingSpotController {
 
     //캠핑스팟 수정 화면
     @GetMapping("/campingspot/{id}/update")
-    public String campingspot_update(Model model,@PathVariable int id,@AuthenticationPrincipal UserDetail userDetail){
+    public String campingspotUpdate(Model model,@PathVariable int id,@AuthenticationPrincipal UserDetail userDetail){
         model.addAttribute("authUser",userDetail.getUserEntity());
         model.addAttribute("spot",campingSpotService.spotDetail(id));
         return "campingspot/campingspot_update";
