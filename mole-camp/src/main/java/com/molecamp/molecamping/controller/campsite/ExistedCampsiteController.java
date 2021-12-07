@@ -1,6 +1,6 @@
 package com.molecamp.molecamping.controller.campsite;
 
-import com.molecamp.molecamping.service.ExistedCampsiteService;
+import com.molecamp.molecamping.service.campsite.ExistedCampsiteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -23,7 +23,7 @@ public class ExistedCampsiteController {
                            @RequestParam(name="region",required = false) String region,
                            @RequestParam(value = "keyword",required = false) String keyword,
                            @PageableDefault(size=10,sort = "id",direction = Sort.Direction.DESC) Pageable pageable){
-        System.out.println(region);
+        model.addAttribute("RegionType",existedCampsiteService.dividedByRegion());
         if(region == null && keyword == null){
             model.addAttribute("campsite",existedCampsiteService.listAll(pageable));
         }else if(region != null){
@@ -31,7 +31,6 @@ public class ExistedCampsiteController {
         }else if(keyword !=null){
             model.addAttribute("campsite",existedCampsiteService.keywordSearch(keyword,pageable));
         }
-        model.addAttribute("RegionType",existedCampsiteService.dividedByRegion());
         model.addAttribute("previous",pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next",pageable.next().getPageNumber());
         return "campsite/campsite_main";

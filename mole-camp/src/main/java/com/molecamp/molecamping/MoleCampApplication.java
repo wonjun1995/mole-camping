@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 // TODO : campingspot,community의 Summernote > uploadImages 기능 대신 파일업로드 기능 따로 추가하여 이미지와 컨텐츠 분리 필요(2021.11.29)
 // TODO : campingSpot > Category -> 지역별 검색 기능 만들어야 하는데 Region_1depth_name의 정확한 정보를 찾지 못하여 테이블 생성을 못함. 해결 필요
 // TODO : 검색 + 카테고리 별 조회 + 페이징 처리(2021.12.04)
-// TODO : 캠핑장 > 길찾기 기능 개발 필요(2021.12.07)
+// TODO : 캠핑장 > 길찾기 기능 개발 필요(2021.12.07) -> 카카오맵 길찾기api 링크 사용하여 개발 완료 (2021.12.07)
 @SpringBootApplication
 public class MoleCampApplication {
     public static void main(String[] args) {

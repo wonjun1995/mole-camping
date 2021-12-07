@@ -23,4 +23,6 @@ public interface ExistedCampsiteRepository extends JpaRepository<ExitstedCampsit
             + " FROM ExitstedCampsite cp "
             + " GROUP BY cp.doNm ")
     public List<CampsiteRegionDto> dividedByDoNm();
+
+    Page<ExitstedCampsite> findByDoNmAndFacltDivNmContaining(String region,String keyword, Pageable pageable);
 }

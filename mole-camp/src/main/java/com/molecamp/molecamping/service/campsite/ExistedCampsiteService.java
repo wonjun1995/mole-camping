@@ -1,4 +1,4 @@
-package com.molecamp.molecamping.service;
+package com.molecamp.molecamping.service.campsite;
 
 import com.molecamp.molecamping.dto.CampsiteRegionDto;
 import com.molecamp.molecamping.entity.campingspot.CampingSpot;
@@ -38,6 +38,12 @@ public class ExistedCampsiteService {
     @Transactional(readOnly = true)
     public Page<ExitstedCampsite> keywordSearch(String keyword, Pageable pageable) {
         return existedCampsiteRepository.findByFacltNmContaining(keyword,pageable);
+    }
+
+    //통합검색
+    @Transactional(readOnly = true)
+    public Page<ExitstedCampsite> totalSearch(String region,String keyword,Pageable pageable){
+        return existedCampsiteRepository.findByDoNmAndFacltDivNmContaining(region,keyword,pageable);
     }
 
     @Transactional(readOnly = true)

@@ -33,8 +33,6 @@
                             <ul class="blog-info-link">
                                 <li><a href="#"> <i class="fa fa-phone" th:text=" ' ' + ${list.tel}"></i></a>
                                 </li>
-                                <!--                                <li><a href="#"> <i class="far fa-comments"-->
-                                <!--                                                    th:text="' ' + ${list.reply.size()}"></i></a></li>-->
                             </ul>
                         </div>
                     </article>
@@ -87,9 +85,8 @@
                         <ul class="list cat-list">
                             <li><a th:href="@{/campsite}" class="d-flex"><p th:text="전체보기"></p></a></li>
                             <li th:each="data:${RegionType}">
-                                <a th:href="@{/campsite?region={region}(region=${data.doNm})}" class="d-flex">
+                                <a th:href="@{?region={region}(region=${data.doNm})}" class="d-flex">
                                     <p th:text="${data.doNm}" th:value="${data.doNm}" th:name="region"></p>
-                                    <!--<p th:text="|(${data.count})|" th:value="${data.doNm}"></p>-->
                                 </a>
                             </li>
                         </ul>
