@@ -4,12 +4,73 @@
       lang="euc-kr">
 
 <head th:replace="fragments/config :: headFragment"></head>
-
+<link rel="stylesheet" th:href="@{/css/kakaomap/kakaomap.css}">
 <body>
 <header th:replace="fragments/header :: headerFragment"></header>
 
-<h1>캠핑여지도 화면 메인</h1>
+<section class="blog_area section_padding">
+    <div class="container">
+        <h1 class="blog_area section_padding container">
+            두더지캠핑 > 캠핑여지도
+        </h1>
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+                    <div id="map" style="width:100%;height:800px;"></div>
+                    <div >
+                        <div class="campsiteinfo" th:each="list:${campsite}">
+                            <input type="hidden" name="mapY" th:value="${list.mapY}">
+                            <input type="hidden" name="mapX" th:value="${list.mapX}">
+                            <input type="hidden" name="facltNm" th:value="${list.facltNm}">
+                            <input type="hidden" name="firstImageUrl" th:value="${list.firstImageUrl}">
+                            <input type="hidden" name="addr1" th:value="${list.addr1}">
+                            <input type="hidden" name="homepage" th:value="${list.homepage}">
+                        </div>
+                        <div class="campingspotInfo" th:each="spot:${campingspot}">
+                            <input type="hidden" name="latitude_y" th:value="${spot.latitude_y}">
+                            <input type="hidden" name="longtitude_x" th:value="${spot.longtitude_x}">
+                            <input type="hidden" name="title" th:value="${spot.title}">
+                            <input type="hidden" name="firstImageUrl">
+                            <input type="hidden" name="address" th:value="${spot.address}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    <aside class="single_sidebar_widget search_widget">
+                        <form th:action="@{/campsite}" method="get">
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <input type="text" name="keyword" class="form-control" placeholder='캠핑장 검색'
+                                           onfocus="this.placeholder = ''"
+                                           onblur="this.placeholder = '캠핑장 검색'">
+                                </div>
+                            </div>
+                            <button class="button rounded-0 primary-bg w-100 btn_1" type="submit">검색</button>
+                        </form>
+                    </aside>
+                    <aside class="single_sidebar_widget post_category_widget">
+                        <h4 class="widget_title">지역별 검색</h4>
+                        <ul class="list cat-list">
+                            <li><a th:href="@{/campsite}" class="d-flex"><p th:text="전체보기"></p></a></li>
+                            <li th:each="data:${RegionType}">
+                                <a th:href="@{?region={region}(region=${data.doNm})}" class="d-flex">
+                                    <p th:text="${data.doNm}" th:value="${data.doNm}" th:name="region"></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <footer th:replace="fragments/footer :: footerFragment"></footer>
+<script type="text/javascript"
+        th:src="@{//dapi.kakao.com/v2/maps/sdk.js?appkey=2ffca7ff58f56430b906c27747d13b12&libraries=services}"></script>
+<script th:src="@{/js/campingmap/campingmap.js}" type="text/javascript"></script>
+<script th:src="@{//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js}"></script>
 </body>
 </html>

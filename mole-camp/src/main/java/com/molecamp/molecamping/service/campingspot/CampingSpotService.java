@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 @Service
 public class CampingSpotService {
 
@@ -28,6 +30,11 @@ public class CampingSpotService {
     @Transactional(readOnly = true)
     public Page<CampingSpot> listAll(Pageable pageable) {
         return campingspotRepository.findAll(pageable);
+    }
+
+    @Transactional(readOnly = true)
+    public List<CampingSpot> campingSpotListAll(){
+        return campingspotRepository.findAll();
     }
 
     //campingspot 상세보기

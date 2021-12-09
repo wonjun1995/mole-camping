@@ -18,12 +18,6 @@ public class IndexController {
     }
 
 
-    //캠핑여지도
-    @GetMapping("/campingmap")
-    public String campingmap(){
-        return "campingmap/campingmap_main";
-    }
-
     //캠핑장터
     @GetMapping("/campingmarket")
     public String campingmarket(){
