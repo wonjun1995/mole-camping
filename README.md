@@ -57,11 +57,11 @@ Spring boot, Maven,
 
 - 시스템 설계
     
-    ![Untitled](./readme/Untitled.png)
+    ![Untitled](./readme/system.png)
     
 - ERD 설계
     
-    ![Untitled](./readme/Untitled1.png)
+    ![Untitled](./readme/ERD.png)
     
 
 [시스템설계_v1.02.pptx](%E1%84%83%E1%85%AE%E1%84%83%E1%85%A5%E1%84%8C%E1%85%B5%20%E1%84%8F%E1%85%A2%E1%86%B7%E1%84%91%E1%85%B5%E1%86%BC%2039fd260005dd4381a87d94823d244f3b/%E1%84%89%E1%85%B5%E1%84%89%E1%85%B3%E1%84%90%E1%85%A6%E1%86%B7%E1%84%89%E1%85%A5%E1%86%AF%E1%84%80%E1%85%A8_v1.02.pptx)
