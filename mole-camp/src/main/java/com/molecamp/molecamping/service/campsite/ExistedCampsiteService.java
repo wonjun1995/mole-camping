@@ -23,12 +23,19 @@ public class ExistedCampsiteService {
     @Autowired
     private ExistedCampsiteRepository existedCampsiteRepository;
 
-    //지역별 조회
+    //캠핑여지도에 캠핑장 표시
+    @Transactional(readOnly = true)
+    public List<ExitstedCampsite> campsiteAll(){
+        return existedCampsiteRepository.findAll();
+    }
+
     @Transactional(readOnly = true)
     public Page<ExitstedCampsite> listAll(Pageable pageable) {
         return existedCampsiteRepository.findAll(pageable);
     }
 
+    //지역별 조회
+    @Transactional(readOnly = true)
     public Page<ExitstedCampsite> searchByRegion(String region, Pageable pageable) {
         return existedCampsiteRepository.findByDoNm(region,pageable);
     }
