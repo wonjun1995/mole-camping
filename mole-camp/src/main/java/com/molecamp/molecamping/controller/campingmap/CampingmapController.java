@@ -16,7 +16,7 @@ public class CampingmapController {
     @Autowired
     private CampingSpotService campingSpotService;
 
-
+    //마커 표시
     @GetMapping("/campingmap")
     public String campingmap(Model model){
         model.addAttribute("campsite",existedCampsiteService.campsiteAll());
@@ -24,4 +24,5 @@ public class CampingmapController {
         model.addAttribute("campingspot",campingSpotService.campingSpotListAll());
         return "campingmap/campingmap_main";
     }
+
 }
