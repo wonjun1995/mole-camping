@@ -31,7 +31,7 @@ public class IndexController {
     }
 
     //마이페이지
-    @GetMapping("/mypage")
+    @GetMapping("/mycamping")
     public String mypage(){
         return "main/mypage";
     }

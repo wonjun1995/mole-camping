@@ -44,6 +44,14 @@ public class UserService {
         }
     }
 
+    @Transactional
+    public UserEntity validateJoin(String username){
+        UserEntity userEntity = userRepository.findByUsername(username).orElseGet(()->{
+            return new UserEntity();
+        });
+        return userEntity;
+    }
+
     @Transactional(readOnly = true)
     public int idcheck(String username) {
         int count=0;

@@ -2606,7 +2606,7 @@ ul {
 /* line 29, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_booking.scss */
 .booking_part .form-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 /* line 32, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_booking.scss */
@@ -3696,7 +3696,7 @@ ul {
 
 /* line 1, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_breadcrumb.scss */
 .breadcrumb_bg {
-    background-image: url("../../images/bmw_classic.jpg");
+    background-image: url("../../images/background.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -3723,7 +3723,7 @@ ul {
 
 /* line 21, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_breadcrumb.scss */
 .breadcrumb .breadcrumb_iner {
-    height: 400px;
+    height: 600px;
     width: 100%;
     display: table;
 }

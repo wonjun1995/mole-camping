@@ -67,14 +67,12 @@
                                class="form-control d_form std" placeholder="Y">
                         <input type="hidden" name="longtitude_x" th:value="${spot.longtitude_x}"
                                class="form-control d_form std" placeholder="X">
-                        <p>
-                            <button class="d_btn mini" onclick="panTo()">스팟으로 이동</button>
-                        </p>
 
-                        <h4>설명</h4>
+
+
                     </div>
                     <div style="padding-top: 10px; padding-bottom: 10px">
-                        <h4 style="padding-top: 10px; padding-bottom: 10px">다녀온 캠핑 스팟을 공유해주세요!!</h4>
+                        <h4 class="m-t-20 m-b-10">설명</h4>
                         <textarea class="form-control summernote" rows="20" name="description" th:text="${spot.description}"></textarea>
                     </div>
                     <div th:align="right">

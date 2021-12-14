@@ -8,10 +8,12 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "community_comment")
 public class CommunityComment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //프로젝트에서 연결된 DB의 넘버링 전략을 따라감
@@ -21,13 +23,13 @@ public class CommunityComment {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name="postId")
+    @JoinColumn(name="post_id")
     private CommunityPost communityPost;
 
     @ManyToOne
-    @JoinColumn(name="userId")
+    @JoinColumn(name="user_id")
     private UserEntity userEntity;
 
     @CreationTimestamp
-    private Timestamp createdDate;
+    private Timestamp create_date;
 }

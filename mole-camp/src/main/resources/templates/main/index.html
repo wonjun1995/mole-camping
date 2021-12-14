@@ -50,38 +50,13 @@
                             <div class="tab-pane fade show active" id="hotel" role="tabpanel"
                                  aria-labelledby="hotel-tab">
                                 <div class="booking_form">
-                                    <form action="#">
+                                    <form th:action="@{/campsite}" method="get">
                                         <div class="form-row">
-                                            <div class="form_colum">
-                                                <select class="nc_select">
-                                                    <option selected>장소</option>
-                                                    <option value="1">서울/경기</option>
-                                                    <option value="2">제주</option>
-                                                    <option value="3">인천</option>
-                                                </select>
+                                            <div class="w-75">
+                                                <input class="w-100 h-100 nice-select" type="text" name="keyword" placeholder="캠핑장 검색">
                                             </div>
-                                            <div class="form_colum">
-                                                <input id="datepicker_1" placeholder="Check in date">
-                                                <script>
-                                                    $('#datepicker_1').datepicker();
-                                                </script>
-                                            </div>
-                                            <div class="form_colum">
-                                                <input id="datepicker_2" placeholder="Check out date">
-                                                <script>
-                                                    $('#datepicker_2').datepicker();
-                                                </script>
-                                            </div>
-                                            <div class="form_colum">
-                                                <select class="nc_select">
-                                                    <option selected>인원</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                </select>
-                                            </div>
-                                            <div class="form_btn">
-                                                <a href="#" class="btn_1">search</a>
+                                            <div>
+                                                <button class="btn_1" type="submit">검색</button>
                                             </div>
                                         </div>
                                     </form>

@@ -36,8 +36,11 @@ public class UserEntity {
     @Column(name = "create_date", nullable = false)
     private Timestamp createDate;   // 가입일
 
-    @Column(name = "tel", nullable = false, length = 255)
+    @Column(name = "tel", length = 255)
     private String tel; // 전화번호
+
+    @Column
+    private String oauth;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, targetEntity = UserRoleEntity.class)
     @JsonIgnoreProperties({"user"})

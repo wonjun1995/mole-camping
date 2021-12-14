@@ -10,11 +10,13 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
+@Table(name = "community_post")
 public class CommunityPost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +33,7 @@ public class CommunityPost {
 
     // Board가 Many, User는 One 한명의 유저는 여러 개의 게시글을 쓸 수 있다.
     @ManyToOne(fetch = FetchType.EAGER) //Many=Many, User=one
-    @JoinColumn(name="userId")
+    @JoinColumn(name="user_id")
     private UserEntity userEntity;  //DB는 오브젝트를 저장할 수 없다. FK,자바는 오브젝트를 저장할 수 있다.
 
     @ManyToOne

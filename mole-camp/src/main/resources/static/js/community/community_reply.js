@@ -13,7 +13,7 @@
             check = false;
         }
         /*,user_id:userId,post_id:postId*/
-        const data = {userId: userId, postId: postId, content: replyContent};
+        const data = {user_id: userId, post_id: postId, content: replyContent};
 
         if (check === true) {
             $.ajax({

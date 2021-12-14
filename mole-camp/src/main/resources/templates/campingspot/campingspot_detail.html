@@ -26,7 +26,7 @@
                             </li>
                         </ul>
                         <h4>캠핑 스팟 위치</h4>
-                        <div class="map_wrap">
+                        <div class="map_wrap ">
                             <div id="map" style="width:100%; height:400px;position:relative;overflow:hidden;">
                                 <ul id="category">
                                     <li id="BK9" data-order="0">
@@ -68,7 +68,7 @@
                         <input type="hidden" name="longtitude_x" th:value="${spot.longtitude_x}"
                                class="form-control d_form std" placeholder="X">
 
-                        <h4>설명</h4>
+                        <h4 class="m-t-20">설명</h4>
                         <div th:utext="${spot.description}"></div>
                     </div>
                 </div>
@@ -115,36 +115,6 @@
                     </form>
                 </div>
             </div>
-            <!--<div class="col-lg-4">
-                <div class="blog_right_sidebar">
-                    <aside class="single_sidebar_widget search_widget">
-                        <form action="#">
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder='Search Keyword'
-                                           onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
-                                    <div class="input-group-append">
-                                        <button class="btn" type="button"><i class="ti-search"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="button rounded-0 primary-bg text-white w-100 btn_1" type="submit">Search
-                            </button>
-                        </form>
-                    </aside>
-                    <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Category</h4>
-                        <ul class="list cat-list">
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>캠핑장 종류</p>
-                                    <p>(게시글 건수)</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </aside>
-                </div>
-            </div>-->
         </div>
     </div>
 

@@ -43,7 +43,7 @@
                             <div class="d-flex justify-content-between">
                                 <div class="d-flex align-items-center">
                                     <h5><a href="#" th:text="${replylist.userEntity.username}"></a></h5>
-                                    <p class="date" th:text="${replylist.createdDate}"></p>
+                                    <p class="date" th:text="${replylist.create_date}"></p>
                                 </div>
                                 <div class="reply_delete" th:if="${replylist.userEntity.id} == ${authUser.id}">
                                     <input type="hidden" name="delete_reply_id" th:value="${replylist.id}">
@@ -72,36 +72,6 @@
                     </form>
                 </div>
             </div>
-            <!--<div class="col-lg-4">
-                <div class="blog_right_sidebar">
-                    <aside class="single_sidebar_widget search_widget">
-                        <form action="#">
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder='Search Keyword'
-                                           onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
-                                    <div class="input-group-append">
-                                        <button class="btn" type="button"><i class="ti-search"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="button rounded-0 primary-bg text-white w-100 btn_1" type="submit">Search
-                            </button>
-                        </form>
-                    </aside>
-                    <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Category</h4>
-                        <ul class="list cat-list" th:each="categories:${category_type}">
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p th:text="${categories.type}"></p>
-                                    <p>(게시글 건수)</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </aside>
-                </div>
-            </div>-->
         </div>
     </div>
     <span class="login-form__fail-msg" th:text="${signUpFailMsg}"></span>

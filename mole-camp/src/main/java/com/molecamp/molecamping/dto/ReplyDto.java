@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReplyDto {
-    private int userId;
-    private int postId;
+    private int user_id;
+    private int post_id;
     private String content;
 
 }
