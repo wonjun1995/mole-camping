@@ -54,7 +54,7 @@ public class CommunityPostApiController {
 
         JsonObject jsonObject = new JsonObject();
 
-        String fileRoot = "C:\\summernote_image\\";	//저장될 파일 경로
+        String fileRoot = "/home/ubuntu/mole-camping/summernote/";	//저장될 파일 경로
         String originalFileName = multipartFile.getOriginalFilename();	//오리지날 파일명
         String extension = originalFileName.substring(originalFileName.lastIndexOf("."));	//파일 확장자
 
@@ -66,7 +66,7 @@ public class CommunityPostApiController {
         try {
             InputStream fileStream = multipartFile.getInputStream();
             FileUtils.copyInputStreamToFile(fileStream, targetFile);	//파일 저장
-            jsonObject.addProperty("url", "/summernoteImage/"+savedFileName);
+            jsonObject.addProperty("url", "/summernote/"+savedFileName);
             jsonObject.addProperty("responseCode", "success");
 
         } catch (IOException e) {

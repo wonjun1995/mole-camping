@@ -47,11 +47,8 @@ public class UserController {
     }
 
     @GetMapping("/auth/login/kakao")
-    public String kakaoCallback(String code){    //데이터를 리턴해주는 컨트롤러 함수
+    public String kakaoCallback(String code){
 
-        //POST방식으로 key=value 데이터를 요청(카카오쪽으로)
-
-        System.out.println("카카오 컨트롤러 작동");
 
         RestTemplate rt=new RestTemplate();
 
@@ -63,7 +60,7 @@ public class UserController {
         MultiValueMap<String,String> params = new LinkedMultiValueMap<>();
         params.add("grant_type","authorization_code");
         params.add("client_id","62e24697f7bc91876ca05e412964da74");
-        params.add("redirect_uri","http://localhost:8080/auth/login/kakao");
+        params.add("redirect_uri","http://3.34.163.139:8080/auth/login/kakao");
         params.add("code",code);
 
         //HttpHeader와 HttpBody를 하나의 오브젝트에 담기
@@ -94,7 +91,7 @@ public class UserController {
 
         //HttpHeader 오브젝트 생성
         HttpHeaders headers2 = new HttpHeaders();
-        headers2.add("Authorization","Bearer "+oAuthToken.getAccess_token());
+        headers2.add("Authorization","Bearer " + oAuthToken.getAccess_token());
         headers2.add("Content-type","application/x-www-form-urlencoded;charset=utf-8");
 
         //HttpHeader와 HttpBody를 하나의 오브젝트에 담기
